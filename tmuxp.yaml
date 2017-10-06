@@ -1,0 +1,13 @@
+---
+session_name: rocdev
+start_directory: /Users/geowa4/Development/585/app/rocdev
+windows:
+  - window_name: main
+    layout: main-vertical
+    panes:
+      - focus: true
+      - shell_command:
+          - docker rm -f rocdev_db
+          - docker run --name rocdev_db --rm -it -p 5432:5432 postgres
+      - shell_command:
+          - ./app_up

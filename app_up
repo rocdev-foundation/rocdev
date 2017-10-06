@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+mix deps.get
+(
+  cd assets
+  npm install
+)
+
+while ! pg_isready -h localhost -p 5432 -U postgres
+do
+  echo 'waiting for pg'
+  sleep 1
+done
+
+mix ecto.create
+mix ecto.migrate
+iex -S mix phx.server
