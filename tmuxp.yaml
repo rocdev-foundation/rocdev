@@ -1,9 +1,11 @@
 ---
 session_name: rocdev
+start_directory: ./
 windows:
-  - window_name: main
+  - window_name: app
     layout: main-vertical
-    start_directory: ./app
+    start_directory: app
+    focus: true
     panes:
       - focus: true
       - shell_command:
@@ -11,3 +13,14 @@ windows:
           - docker run --name rocdev_db --rm -it -p 5432:5432 postgres
       - shell_command:
           - ./app_up
+  - window_name: infra
+    layout: even-vertical
+    start_directory: infrastructure
+    panes:
+      - focus: true
+        shell_command:
+          - cd terraform
+          - terraform init
+          - terraform plan
+      - shell_command:
+          - la
