@@ -16,14 +16,8 @@ pip3 install tmuxp
 
 ### Using tmuxp
 
-Simply run `tmuxp load ./tmuxp.yaml`.
-
-### Manual Start
-
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+If you installed tmuxp, simply run `tmuxp load ./tmuxp.yaml`.
+Otherwise, the shell commands in that file should be sufficient to get you started.
 
 ### Show Your Work
 
