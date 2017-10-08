@@ -1,9 +1,9 @@
 ---
 session_name: rocdev
-start_directory: /Users/geowa4/Development/585/app/rocdev
 windows:
   - window_name: main
     layout: main-vertical
+    start_directory: ./app
     panes:
       - focus: true
       - shell_command:

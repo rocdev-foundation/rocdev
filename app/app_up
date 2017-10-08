@@ -2,17 +2,20 @@
 set -e
 
 mix deps.get
+mix compile
 (
   cd assets
   npm install
 )
 
-while ! pg_isready -h localhost -p 5432 -U postgres
+while ! docker run --rm -it --network host postgres \
+        pg_isready -h localhost -p 5432 -U postgres
 do
   echo 'waiting for pg'
   sleep 1
 done
 
+mkdir -p priv/repo/migrations
 mix ecto.create
 mix ecto.migrate
 iex -S mix phx.server
