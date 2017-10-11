@@ -35,6 +35,7 @@ resource "github_repository_webhook" "datadog_webhook" {
     "delete",
     "deployment",
     "deployment_status",
+    "fork",
     "gollum",
     "issue_comment",
     "issues",
@@ -53,7 +54,8 @@ resource "github_repository_webhook" "datadog_webhook" {
     "release",
     "repository",
     "status",
-    "team_add"
+    "team_add",
+    "watch"
   ]
 
   configuration {
