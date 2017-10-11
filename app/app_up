@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-mix deps.get
-mix compile
-(
-  cd assets
-  npm install
-)
+./elixir_build
+./node_build
 
 while ! docker run --rm -it --network host postgres \
         pg_isready -h localhost -p 5432 -U postgres

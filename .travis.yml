@@ -1,0 +1,12 @@
+---
+sudo: required
+
+language: elixir
+
+services:
+  - docker
+
+install:
+  - docker ps -a
+script:
+  - ./ci
