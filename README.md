@@ -4,26 +4,7 @@ The online presence for RocDev written with Elixir and Phoenix.
 
 ## Getting Started
 
-First, you must install [Elixir](https://elixir-lang.org/) and [pg_isready](https://www.postgresql.org/docs/current/static/app-pg-isready.html).
-Then, it is recommended you install the Python package [tmuxp](https://tmuxp.git-pull.com/en/latest/).
-
-On macOS with [Homebrew](https://brew.sh/), this can be done with the following.
-
-```
-brew install elixir postgresql python3
-pip3 install tmuxp
-```
-
-### Using tmuxp
-
-If you installed tmuxp, simply run `tmuxp load ./tmuxp.yaml`.
-Otherwise, the shell commands in that file should be sufficient to get you started.
-
-### Show Your Work
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+To start developing, see CONTRIBUTING.md.
 
 ## Learn more
 

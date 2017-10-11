@@ -55,7 +55,7 @@ resource "github_repository_webhook" "datadog_webhook" {
     "repository",
     "status",
     "team_add",
-    "watch"
+    "watch",
   ]
 
   configuration {
