@@ -2,28 +2,45 @@
 
 ## Getting Started
 
+### Vagrant (and Ubuntu)
+
+[Vagrant][vagrant] is a tool for building and managing virtual machines.
+
+```
+vagrant up
+vagrant ssh
+```
+
+Since the Vagrant image is Ubuntu, you can follow the provisioning scripts to get everything running.
+
+### macOS
+
 First, you'll need a couple things installed: [Docker][docker] and [asdf][asdf].
 With those, you can install all the other tooling that is necessary.
-Assuming you're on macOS, run the following.
 
 ```
 brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc xz
 brew install docker asdf
+asdf plugin-add erlang
 asdf plugin-add elixir
 asdf plugin-add nodejs
 asdf install
 ```
 
 Optionally, you may wish to install [tmuxp][tmuxp], a Python package, to get everything started via [tmux][tmux].
+
 ```
 brew install tmux
 /usr/local/opt/asdf/plugins/nodejs/bin/import-release-team-keyring
 asdf plugin-add python
 CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" asdf install
 pip install tmuxp
+asdf reshim Python
 ```
 
-If you have installed tmuxp, run `tmuxp load ./tmuxp.yaml`.
+### Last Steps
+
+If you want to use tmuxp, run `tmuxp load ./tmuxp.yaml`.
 Otherwise, you should still read through tmuxp.yaml to see the commands necessary to get all the components running.
 Once everything is up, you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
@@ -83,6 +100,7 @@ If your PR has one change in it, the header of the commit suffices for the PR he
 the rest is sufficient for the text.
 If this is your first contribution and you added your name to `humans.txt`, use the other commit to fill in the header and body.
 
+[vagrant]: https://www.vagrantup.com/
 [docker]: https://www.docker.com/
 [asdf]: https://github.com/asdf-vm/asdf
 [tmux]: https://github.com/tmux/tmux/wiki
