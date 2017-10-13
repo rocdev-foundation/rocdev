@@ -4,16 +4,16 @@ start_directory: ./
 before_script: ./ci
 windows:
   - window_name: app
-    layout: main-vertical
+    layout: tiled
     start_directory: app
     focus: true
     panes:
-      - focus: true
       - shell_command:
           - docker rm -f rocdev_db
-          - docker run --name rocdev_db --rm -it -p 5432:5432 postgres
+          - docker run --name rocdev_db --rm -it -p 5432:5432 postgres:10
       - shell_command:
           - ./app_up
+      - focus: true
   - window_name: infra
     layout: even-vertical
     start_directory: infrastructure
@@ -21,7 +21,5 @@ windows:
       - focus: true
         shell_command:
           - cd terraform
-          - terraform init
-          - terraform plan
       - shell_command:
           - la

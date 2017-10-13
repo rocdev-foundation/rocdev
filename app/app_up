@@ -4,8 +4,17 @@ set -e
 ./elixir_build
 ./node_build
 
-while ! docker run --rm -it --network host postgres \
-        pg_isready -h localhost -p 5432 -U postgres
+function check_pg() {
+  if which pg_isready
+  then
+    pg_isready -h localhost -p 5432 -U postgres
+  else
+    docker run --rm -it --network host postgres:10 \
+      pg_isready -h localhost -p 5432 -U postgres
+  fi
+}
+
+while ! check_pg
 do
   echo 'waiting for pg'
   sleep 1
