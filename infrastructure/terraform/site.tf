@@ -60,7 +60,7 @@ resource "github_repository_webhook" "datadog_webhook" {
 
   configuration {
     url          = "https://app.datadoghq.com/intake/webhook/github?api_key=${var.datadog_api_key_for_github}"
-    content_type = "form"
+    content_type = "json"
     insecure_ssl = false
   }
 }
