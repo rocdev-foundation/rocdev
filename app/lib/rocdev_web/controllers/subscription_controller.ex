@@ -1,6 +1,8 @@
 defmodule RocdevWeb.SubscriptionController do
   use RocdevWeb, :controller
 
+  alias Rocdev.MailingList
+
   # raises a good point:
   # https://davidcel.is/posts/stop-validating-email-addresses-with-regex/
   # ¯\_(ツ)_/¯
@@ -13,7 +15,7 @@ defmodule RocdevWeb.SubscriptionController do
   def delete(conn, params) do
     case get_email(params) do
       {:ok, email} ->
-        # HERE IS WHERE WE WOULD ACTUALLY UNSUBSCRIBE
+        :ok = MailingList.unsubscribe_async(email)
 
         conn
         |> put_flash(:info, "#{email} unsubscribed")

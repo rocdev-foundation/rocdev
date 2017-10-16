@@ -17,3 +17,10 @@ config :rocdev, Rocdev.Repo,
   database: "rocdev_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+
+config :sparkpost,
+  api_endpoint: "http://localhost:4321/",
+  api_key: "TESTKEY",
+  http_timeout: 5000,
+  http_conn_timeout: 8000
