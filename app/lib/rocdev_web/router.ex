@@ -18,6 +18,8 @@ defmodule RocdevWeb.Router do
 
     get "/", PageController, :index
     get "/unsubscribe", SubscriptionController, :unsubscribe
+
+    delete "/subscriptions", SubscriptionController, :delete
   end
 
   # Other scopes may use custom stacks.

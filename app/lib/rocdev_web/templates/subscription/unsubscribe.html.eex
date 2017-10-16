@@ -1,3 +1,6 @@
-<div class="jumbotron">
-  <h2>Sorry to see you go.</h2>
-</div>
+Whatever.  See if we care.
+
+<%= form_for @conn,  subscription_path(@conn, :delete), [as: :unsubscribe, method: :delete], fn f -> %>
+  <%= email_input f, :email, value: @email, required: true %>
+  <%= submit "Unsubscribe" %>
+<% end %>

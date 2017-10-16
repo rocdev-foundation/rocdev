@@ -4,7 +4,7 @@ defmodule Rocdev.Application do
   """
   use Application
 
-  alias RocDev.Endpoint
+  alias RocdevWeb.Endpoint
 
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
