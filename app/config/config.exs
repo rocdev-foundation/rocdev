@@ -22,6 +22,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :sparkpost,
+  api_key: "TODO SUPPLY KEY",
+  http_timeout: 5000,
+  http_conn_timeout: 8000
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
