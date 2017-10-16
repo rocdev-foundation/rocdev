@@ -41,6 +41,8 @@ defmodule Rocdev.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:sparkpost, "~> 0.5.1"},
+      {:bypass, "~> 0.8.1", only: :test},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end
