@@ -4,7 +4,7 @@ The online presence for RocDev written with Elixir and Phoenix.
 
 ## Getting Started
 
-To start developing, see CONTRIBUTING.md.
+To start developing, see [CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ## Learn more
 
