@@ -6,7 +6,7 @@ defmodule RocdevWeb.SubscriptionController do
   # raises a good point:
   # https://davidcel.is/posts/stop-validating-email-addresses-with-regex/
   # ¯\_(ツ)_/¯
-  @email_regex ~r/.+@.+\..+/i
+  @email_regex ~r/.+@.+/i
 
   def unsubscribe(conn, params) do
     render conn, "unsubscribe.html", email: Map.get(params, "email")

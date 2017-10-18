@@ -1,6 +1,7 @@
-Whatever.  See if we care.
+We're sorry to see you go.  Enter your email to unsubscribe.
 
 <%= form_for @conn,  subscription_path(@conn, :delete), [as: :unsubscribe, method: :delete], fn f -> %>
+  <%= label f, :email, "Email" %>
   <%= email_input f, :email, value: @email, required: true %>
   <%= submit "Unsubscribe" %>
 <% end %>
