@@ -2,3 +2,5 @@
 Contributors:
   - name: George Adams IV
     github: geowa4
+  - name: Mike Thone
+    github: mikethone
