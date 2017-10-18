@@ -6,7 +6,7 @@ This work in progress is the future online presence for RocDev written with Elix
 
 ## Getting Started
 
-To start developing, see CONTRIBUTING.md.
+To start developing, see [CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
 ## Learn more
 
