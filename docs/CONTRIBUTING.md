@@ -42,7 +42,8 @@ asdf reshim Python
 
 If you want to use tmuxp, run `tmuxp load ./tmuxp.yaml`.
 Otherwise, you should still read through tmuxp.yaml to see the commands necessary to get all the components running.
-Once everything is up, you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Once everything is up, you can visit [`localhost:8000`](http://localhost:8000) from your browser.
+You can also directly hit Phoenix at [`localhost:4000`](http://localhost:4000).
 
 ## Branching
 

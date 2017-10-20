@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-docker build -t rocdev_nginx infrastructure/nginx
-docker rmi rocdev_nginx
+docker build -t rocdev_http infrastructure/nginx
+docker rmi rocdev_http
 
 docker run \
   --rm \

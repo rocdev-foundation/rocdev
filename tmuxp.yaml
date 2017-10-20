@@ -5,13 +5,12 @@ before_script: ./ci
 windows:
   - window_name: app
     layout: tiled
-    start_directory: app
     focus: true
     panes:
       - shell_command:
-          - docker rm -f rocdev_db
-          - docker run --name rocdev_db --rm -it -p 5432:5432 postgres:10
+          - docker-compose up --build
       - shell_command:
+          - cd app
           - ./app_up
       - focus: true
   - window_name: infra

@@ -1,0 +1,13 @@
+---
+version: '3'
+services:
+  database:
+    image: 'postgres:10'
+    ports:
+      - '5432:5432'
+  http:
+    build: ./infrastructure/nginx
+    environment:
+      ROCDEV_APP_HOST: docker.for.mac.localhost
+    ports:
+      - '8000:80'
