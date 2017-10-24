@@ -62,3 +62,28 @@ resource "github_repository_webhook" "datadog_webhook" {
     insecure_ssl = false
   }
 }
+
+resource "github_branch_protection" "app_master" {
+  repository     = "${github_repository.app_repo.name}"
+  branch         = "master"
+  enforce_admins = false
+
+  required_status_checks {
+    strict   = true
+    contexts = ["continuous-integration/travis-ci"]
+  }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews = true
+
+    dismissal_teams = [
+      "${github_team.webmasters.id}",
+    ]
+  }
+
+  restrictions {
+    teams = [
+      "${github_team.webmasters.id}",
+    ]
+  }
+}
