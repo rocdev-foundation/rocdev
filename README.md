@@ -8,6 +8,10 @@ This work in progress is the future online presence for RocDev written with Elix
 
 To start developing, see [CONTRIBUTING.md](docs/CONTRIBUTING.md).
 
+## Making a Feature Request
+
+Use [this link](https://github.com/585-software/rocdev/issues/new?template=feature.md) to open a new Feature Request Issue on GitHub.
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
