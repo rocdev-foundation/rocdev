@@ -1,36 +1,10 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+<h1 class="home_heading">RocDev</h1>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<p>
+We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
+We are Software and Quality Assurance Engineers, Product Managers and Entrepreneurs, and Students and Teachers looking to share our experiences and knowledge with one another in an effort to support and grow the community as a whole.
+Twice per month, a member of the community will present a topic on which he or she is knowledgeable or has recently learned and wants to share.
+In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
+To join us, sign up with <a href="<%= page_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
+When we're not meeting, we maintain contact through <a href="<%= page_path(@conn, :slack) %>">Slack</a> to share job posts, share career advice, and debate which framework is best.
+</p>
