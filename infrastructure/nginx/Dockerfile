@@ -1,6 +1,6 @@
 FROM nginx:1.13
 CMD /bin/bash -c " \
-    envsubst '\$ROCDEV_APP_HOST' \
+    envsubst '\$ROCDEV_APP_HOST \$ROCDEV_EMAIL_HOST' \
       < /etc/nginx/conf.d/default.conf \
       > /etc/nginx/conf.d/default.conf \
     && \

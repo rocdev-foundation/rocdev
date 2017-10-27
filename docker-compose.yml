@@ -9,5 +9,13 @@ services:
     build: ./infrastructure/nginx
     environment:
       ROCDEV_APP_HOST: docker.for.mac.localhost
+      ROCDEV_EMAIL_HOST: email
     ports:
       - '8000:80'
+  email:
+    image: 'mailhog/mailhog'
+    environment:
+      MH_UI_WEB_PATH: email
+    ports:
+      - '1025:1025'
+      - '8025:8025'
