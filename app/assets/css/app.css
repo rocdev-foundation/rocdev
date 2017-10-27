@@ -1,1 +1,128 @@
-/* This file is for your main application css. */
+:root {
+  --accent: rgb(232, 28, 79);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: rgb(86, 107, 120);
+  font-family: 'Crimson Text', serif;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+nav {
+  background-color: rgb(248, 248, 248);
+  border-bottom: 1px solid rgb(231, 231, 231);
+  font-size: larger;
+  font-variant: small-caps;
+}
+
+nav > .container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+nav ul, div {
+  display: inline-block;
+  padding-left: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav .dropdown {
+  padding-left: 0.5em;
+}
+
+nav .dropdown::after {
+  content: " \25BE";
+}
+
+nav .primary-nav {
+  position: relative;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav ul.primary-nav > li + li {
+  margin-left: 1em;
+}
+
+nav ul.primary-nav > li:hover ul.secondary-nav {
+  display: block;
+}
+
+nav ul.secondary-nav {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: auto;
+  background-color: rgb(248, 248, 248);
+  border-bottom: 1px solid rgb(231, 231, 231);
+  padding: 0.25em 0.5em 0.5em;
+}
+
+nav a {
+  color: inherit;
+  display: inline-block;
+  padding: 0.1em 0;
+}
+
+nav a:hover {
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+
+main {
+  flex: 1 0 auto;
+  margin: auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+p, ul {
+  text-align: justify;
+}
+
+footer {
+  background-color: rgb(248, 248, 248);
+  border-top: 1px solid rgb(231, 231, 231);
+  font-size: smaller;
+}
+
+footer > p {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.alert:empty { display: none; }
+
+.container {
+  width: 600px;
+}
+
+h1.home_heading {
+  font-size: 3em;
+}
+
+.slack_iframe {
+  border: none;
+  width: 100%;
+  height: 780px;
+}

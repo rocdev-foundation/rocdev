@@ -17,6 +17,10 @@ defmodule RocdevWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/code-of-conduct", PageController, :code_of_conduct
+    get "/slack", PageController, :slack
+    get "/meetup", PageController, :meetup
+    get "/github", PageController, :github
     get "/unsubscribe", SubscriptionController, :unsubscribe
 
     delete "/subscriptions", SubscriptionController, :delete
