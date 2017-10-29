@@ -19,23 +19,16 @@ First, you'll need a couple things installed: [Docker][docker] and [asdf][asdf].
 With those, you can install all the other tooling that is necessary.
 
 ```
-brew install coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc xz
+brew install coreutils automake autoconf openssl libyaml readline libxslt libtool tmux unixodbc xz
 brew install docker asdf
 asdf plugin-add erlang
 asdf plugin-add elixir
 asdf plugin-add nodejs
-asdf install
-```
-
-Optionally, you may wish to install [tmuxp][tmuxp], a Python package, to get everything started via [tmux][tmux].
-
-```
-brew install tmux
-/usr/local/opt/asdf/plugins/nodejs/bin/import-release-team-keyring
 asdf plugin-add python
+asdf plugin-add terraform
+/usr/local/opt/asdf/plugins/nodejs/bin/import-release-team-keyring
 CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" asdf install
 pip install tmuxp
-asdf reshim Python
 ```
 
 ### Last Steps
