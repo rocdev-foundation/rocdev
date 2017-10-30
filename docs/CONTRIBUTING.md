@@ -38,6 +38,16 @@ Otherwise, you should still read through tmuxp.yaml to see the commands necessar
 Once everything is up, you can visit [`localhost:8000`](http://localhost:8000) from your browser.
 You can also directly hit Phoenix at [`localhost:4000`](http://localhost:4000).
 
+## Contributing to Documentation
+
+Contributing to our documentation is a great way to get started, and helps out everyone who works on this project.
+Here are some simple guidelines when committing to documentation (SO META!):
+
+- Each sentence should be put on its own line for readability
+- Titleize headers: capitalize all words except for articles and prepositions, or where it is stylistically appropriate (e.g. "macOS")
+- [Use links where appropriate](https://help.ghost.org/hc/en-us/articles/224410728-Markdown-Guide#text-styling) to help people learn more about esoteric concepts
+
+
 ## Branching
 
 Before making any changes, please make a branch.
