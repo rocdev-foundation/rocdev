@@ -18,6 +18,7 @@ variable "members" {
     "RyPeck",
     "Scotchester",
     "sfacci",
+    "kylemacey",
   ]
 }
 
@@ -27,6 +28,14 @@ variable "webmasters" {
   default = [
     "Scotchester",
     "sfacci",
+  ]
+}
+
+variable "gitmasters" {
+  type = "list"
+
+  default = [
+    "kylemacey",
   ]
 }
 
@@ -82,4 +91,24 @@ resource "github_team_repository" "webmasters_legacy_repo" {
   team_id    = "${github_team.webmasters.id}"
   repository = "${element(var.legacy_web_repos, count.index)}"
   permission = "push"
+}
+
+resource "github_team" "gitmasters" {
+  name        = "Git Masters"
+  description = "Those well versed in Git and GitHub"
+  privacy     = "closed"
+}
+
+resource "github_team_membership" "gitmaster_maintainer_membership" {
+  count    = "${length(var.admins)}"
+  team_id  = "${github_team.gitmasters.id}"
+  username = "${element(var.admins, count.index)}"
+  role     = "maintainer"
+}
+
+resource "github_team_membership" "gitmaster_membership" {
+  count    = "${length(var.gitmasters)}"
+  team_id  = "${github_team.gitmasters.id}"
+  username = "${element(var.gitmasters, count.index)}"
+  role     = "member"
 }
