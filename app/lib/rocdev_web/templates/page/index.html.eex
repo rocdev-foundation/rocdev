@@ -12,13 +12,13 @@
     <p>
       Twice per month, a member of the community will present a topic on which he or she is knowledgeable and wants to share.
       In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
-      To join us, sign up with <a href="<%= page_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
+      To join us, sign up with <a href="<%= social_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
     </p>
   </div>
   <div class="slack">
     <h2><i class="fa fa-slack" aria-hidden="true"></i></h2>
     <p>
-      When we're not meeting, we maintain contact through <a href="<%= page_path(@conn, :slack) %>">Slack</a>.
+      When we're not meeting, we maintain contact through <a href="<%= social_path(@conn, :slack) %>">Slack</a>.
       Topics vary and can include asking for help debugging a stack trace to sharing career advice.
       We have channels for popular languages like JavaScript and Python as well as things like cryptocurrencies and working remotely.
     </p>

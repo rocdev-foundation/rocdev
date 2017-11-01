@@ -1,0 +1,15 @@
+.social-nav-links {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.slack-iframe {
+  border: none;
+  width: 100%;
+  height: 780px;
+}
+
+.social-home {
+  display: flex;
+  justify-content: space-between;
+}

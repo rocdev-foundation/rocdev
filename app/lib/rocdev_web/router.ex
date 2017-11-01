@@ -14,16 +14,22 @@ defmodule RocdevWeb.Router do
   end
 
   scope "/", RocdevWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
     get "/code-of-conduct", PageController, :code_of_conduct
-    get "/slack", PageController, :slack
-    get "/meetup", PageController, :meetup
-    get "/github", PageController, :github
     get "/unsubscribe", SubscriptionController, :unsubscribe
 
     delete "/subscriptions", SubscriptionController, :delete
+  end
+
+  scope "/social", RocdevWeb do
+    pipe_through :browser
+
+    get "/", SocialController, :index
+    get "/slack", SocialController, :slack
+    get "/meetup", SocialController, :meetup
+    get "/github", SocialController, :github
   end
 
   # Other scopes may use custom stacks.

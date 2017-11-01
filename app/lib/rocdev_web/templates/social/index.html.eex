@@ -1,0 +1,22 @@
+<h1>Let's Get Social</h1>
+
+<div class="social-home">
+  <h2>
+    <a href="<%= social_path(@conn, :meetup) %>">
+      <i class="fa fa-meetup" aria-hidden="true"></i>
+      Meetup
+    </a>
+  </h2>
+  <h2>
+    <a href="<%= social_path(@conn, :meetup) %>">
+      <i class="fa fa-slack" aria-hidden="true"></i>
+      Slack
+    </a>
+  </h2>
+  <h2>
+    <a href="<%= social_path(@conn, :meetup) %>">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      GitHub
+    </a>
+  </h2>
+</div>
