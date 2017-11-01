@@ -1,26 +1,42 @@
 <h1 class="home_heading">RocDev</h1>
 
-<div class="about">
+<section class="about">
   <p>
     We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
     We are Software and Quality Assurance Engineers, Product Managers and Entrepreneurs, and Students and Teachers looking to share our experiences and knowledge with one another in an effort to support and grow the community as a whole.
   </p>
-</div>
-<div class="highlights">
+</section>
+<section class="social">
+  <div class="slack">
+    <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
+    <div class="slack-widget">
+      <p class="slack-description">
+        Everyday, we chat on Slack, helping each other with a baffling stack trace or sharing career advice.
+        We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
+        Join us; we're friendly.
+      </p>
+      <div class="slack-registration">
+        <%= form_for @conn,  slack_path(@conn, :register), [as: :register, method: :post], fn f -> %>
+          <%= email_input f, :email, placeholder: "email@example.com", required: true %>
+          <%= submit "Get my invite" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="meetup">
-    <h2><i class="fa fa-meetup" aria-hidden="true"></i></h2>
+    <h2><i class="fa fa-meetup" aria-hidden="true"></i> Meetup</h2>
     <p>
       Twice per month, a member of the community will present a topic on which he or she is knowledgeable and wants to share.
       In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
-      To join us, sign up with <a href="<%= page_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
+      To join us, <a href="<%= social_path(@conn, :meetup) %>">sign up with Meetup</a> to be notified of our next event.
     </p>
   </div>
-  <div class="slack">
-    <h2><i class="fa fa-slack" aria-hidden="true"></i></h2>
+  <div class="github">
+    <h2><i class="fa fa-github" aria-hidden="true"></i> GitHub</h2>
     <p>
-      When we're not meeting, we maintain contact through <a href="<%= page_path(@conn, :slack) %>">Slack</a>.
-      Topics vary and can include asking for help debugging a stack trace to sharing career advice.
-      We have channels for popular languages like JavaScript and Python as well as things like cryptocurrencies and working remotely.
+      This site as well as other projects made by and for the members of the RocDev community can be found on <a href="<%= social_path(@conn, :github) %>">GitHub</a>.
+      If you want to contribute or see how soemthing was done, feel free to <a href="<%= social_path(@conn, :github) %>">browse our projects</a>.
+      We welcome all kinds of bug reports, feature requests, and pull requests.
     </p>
   </div>
-</div>
+</section>
