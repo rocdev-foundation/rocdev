@@ -7,7 +7,9 @@ use Mix.Config
 
 # General application configuration
 config :rocdev,
-  ecto_repos: [Rocdev.Repo]
+  ecto_repos: [Rocdev.Repo],
+  slack_invite_base_url: System.get_env("SLACK_INVITE_API_BASE"),
+  slack_invite_api_token: System.get_env("SLACK_INVITE_API_TOKEN")
 
 # Configures the endpoint
 config :rocdev, RocdevWeb.Endpoint,
@@ -23,7 +25,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :sparkpost,
-  api_key: "TODO SUPPLY KEY",
+  api_key: System.get_env("SPARKPOST_API_KEY"),
   http_timeout: 5000,
   http_conn_timeout: 8000
 

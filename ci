@@ -19,5 +19,13 @@ docker run \
   hashicorp/terraform:0.10.7 \
   fmt -check
 
-docker run --rm -it -v "$PWD"/app:/app -w '/app' elixir:1.5.2 ./elixir_build
+docker run \
+  --rm \
+  -it \
+  -v "$PWD"/app:/app \
+  -w '/app' \
+  -e "SLACK_INVITE_API_BASE=empty" \
+  -e "SLACK_INVITE_API_TOKEN=empty" \
+  -e "SPARKPOST_API_KEY=empty" \
+  elixir:1.5.2 ./elixir_build
 docker run --rm -it -v "$PWD"/app:/app -w '/app' node:8.6.0 ./node_build
