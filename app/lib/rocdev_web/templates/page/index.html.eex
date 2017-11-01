@@ -1,10 +1,26 @@
 <h1 class="home_heading">RocDev</h1>
 
-<p>
-We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
-We are Software and Quality Assurance Engineers, Product Managers and Entrepreneurs, and Students and Teachers looking to share our experiences and knowledge with one another in an effort to support and grow the community as a whole.
-Twice per month, a member of the community will present a topic on which he or she is knowledgeable or has recently learned and wants to share.
-In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
-To join us, sign up with <a href="<%= page_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
-When we're not meeting, we maintain contact through <a href="<%= page_path(@conn, :slack) %>">Slack</a> to share job posts, share career advice, and debate which framework is best.
-</p>
+<div class="about">
+  <p>
+    We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
+    We are Software and Quality Assurance Engineers, Product Managers and Entrepreneurs, and Students and Teachers looking to share our experiences and knowledge with one another in an effort to support and grow the community as a whole.
+  </p>
+</div>
+<div class="highlights">
+  <div class="meetup">
+    <h2><i class="fa fa-meetup" aria-hidden="true"></i></h2>
+    <p>
+      Twice per month, a member of the community will present a topic on which he or she is knowledgeable and wants to share.
+      In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
+      To join us, sign up with <a href="<%= page_path(@conn, :meetup) %>">Meetup</a> to be notified of our next event.
+    </p>
+  </div>
+  <div class="slack">
+    <h2><i class="fa fa-slack" aria-hidden="true"></i></h2>
+    <p>
+      When we're not meeting, we maintain contact through <a href="<%= page_path(@conn, :slack) %>">Slack</a>.
+      Topics vary and can include asking for help debugging a stack trace to sharing career advice.
+      We have channels for popular languages like JavaScript and Python as well as things like cryptocurrencies and working remotely.
+    </p>
+  </div>
+</div>
