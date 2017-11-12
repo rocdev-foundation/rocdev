@@ -1,0 +1,45 @@
+.social {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: var(--column-gap);
+}
+
+.social .slack {
+  grid-column: span 2;
+}
+
+.slack-widget {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: var(--column-gap);
+}
+
+.slack-description {
+  margin-top: 0;
+}
+
+.slack-registration form {
+  display: grid;
+  grid-row-gap: 0.75em;
+}
+
+.slack-registration input, .slack-registration button {
+  box-sizing: border-box;
+  padding: 0.5em 0.75em;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+.slack-registration input {
+  /* match line-height with margin-top */
+  margin-top: 0.15em;
+}
+
+.slack-registration button {
+  outline: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-accent);
+  color: var(--primary);
+}

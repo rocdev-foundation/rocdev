@@ -43,6 +43,7 @@ defmodule Rocdev.Mixfile do
       {:cowboy, "~> 1.0"},
       {:sparkpost, "~> 0.5.1"},
       {:bypass, "~> 0.8.1", only: :test},
+      {:tesla, "~> 0.9.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
     ]
   end

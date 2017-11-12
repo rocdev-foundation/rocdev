@@ -15,30 +15,18 @@
 
   <body>
     <nav role="navigation">
-      <div class="container">
-        <ul class="primary-nav main-nav-links">
-          <li><a href="<%= page_path(@conn, :index) %>">Home</a></li>
-          <li><a href="<%= page_path(@conn, :code_of_conduct) %>">Code of Conduct</a></li>
-        </ul>
-        <ul class="primary-nav social-nav-links">
-          <li>
-            <a href="#" class="dropdown">Social</a>
-            <ul class="secondary-nav">
-              <li><a href="<%= page_path(@conn, :slack) %>">Slack</a></li>
-              <li><a href="<%= page_path(@conn, :meetup) %>">Meetup</a></li>
-              <li><a href="<%= page_path(@conn, :github) %>">GitHub</a></li>
-            </ul>
-          </li>
-        </div>
-      </div>
+      <ul class="container">
+        <li><a href="<%= page_path(@conn, :index) %>">Home</a></li>
+        <li><a href="<%= page_path(@conn, :code_of_conduct) %>">Code of Conduct</a></li>
+      </ul>
     </nav>
 
+    <main class="container" role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main class="container" role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
 
     <footer>
       <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
