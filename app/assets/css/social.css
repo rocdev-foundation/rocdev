@@ -30,11 +30,6 @@
   text-align: center;
 }
 
-.slack-registration input {
-  /* match line-height with margin-top */
-  margin-top: 0.15em;
-}
-
 .slack-registration button {
   outline: 0;
   cursor: pointer;

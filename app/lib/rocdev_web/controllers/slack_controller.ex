@@ -1,8 +1,7 @@
 defmodule RocdevWeb.SlackController do
   use RocdevWeb, :controller
   require Logger
-
-  alias Rocdev.ChatInviter
+  alias Rocdev.SlackAPI
 
   def index(conn, _params) do
     redirect conn, external: "https://rocdev.slack.com"
@@ -10,7 +9,7 @@ defmodule RocdevWeb.SlackController do
 
   # Invite and redirect back to home page, which has the form.
   def register(conn, %{"register" => %{"email" => email}}) do
-    case ChatInviter.invite(email) do
+    case SlackAPI.invite(email) do
       {:ok, _} ->
         conn
         |> put_flash(:info, "Invitation sent to #{email}.")
