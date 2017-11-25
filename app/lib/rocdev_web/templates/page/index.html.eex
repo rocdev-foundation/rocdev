@@ -40,7 +40,7 @@
     <p>
       This site as well as other projects made by and for the members of the RocDev community can be found on <a href="<%= social_path(@conn, :github) %>">GitHub</a>.
       If you want to contribute or see how soemthing was done, feel free to <a href="<%= social_path(@conn, :github) %>">browse our projects</a>.
-      We welcome all kinds of bug reports, feature requests, and pull requests.
+      We welcome all kinds of bug reports, feature suggestions, and pull requests.
     </p>
   </div>
 </section>
