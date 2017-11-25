@@ -11,11 +11,15 @@
     <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
     <div class="slack-widget">
       <p class="slack-description">
-        Everyday, we chat on Slack, helping each other with a baffling stack trace or sharing career advice.
+        Everyday, we chat on Slack, helping each other with a baffling stack trace, talking about the latest tech news, and sharing career advice.
         We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
         Join us; we're friendly.
       </p>
       <div class="slack-registration">
+        <p class="slack-description">
+          Join the <%= total_member_count(@members) %> members;
+          <%= active_member_count(@members) %> are active now.
+        </p>
         <%= form_for @conn,  slack_path(@conn, :register), [as: :register, method: :post], fn f -> %>
           <%= email_input f, :email, placeholder: "email@example.com", required: true %>
           <%= submit "Get my invite" %>

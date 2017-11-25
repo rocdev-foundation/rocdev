@@ -9,7 +9,9 @@ use Mix.Config
 config :rocdev,
   ecto_repos: [Rocdev.Repo],
   slack_invite_base_url: System.get_env("SLACK_INVITE_API_BASE"),
-  slack_invite_api_token: System.get_env("SLACK_INVITE_API_TOKEN")
+  slack_invite_api_token: System.get_env("SLACK_INVITE_API_TOKEN"),
+  slack_api_base_url: System.get_env("SLACK_API_BASE"),
+  slack_api_token: System.get_env("SLACK_API_TOKEN")
 
 # Configures the endpoint
 config :rocdev, RocdevWeb.Endpoint,
