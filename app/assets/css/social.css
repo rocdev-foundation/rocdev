@@ -34,7 +34,7 @@
   outline: 0;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: var(--background-primary);
-  border: 1px solid var(--background-accent);
-  color: var(--primary);
+  background-color: var(--fill-primary-color);
+  border: 1px solid var(--fill-accent-color);
+  color: var(--fill-text-color);
 }

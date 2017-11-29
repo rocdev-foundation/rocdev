@@ -1,8 +1,10 @@
 :root {
-  --primary: rgb(86, 107, 120);
-  --accent: rgb(232, 28, 79);
-  --background-primary: rgb(248, 248, 248);
-  --background-accent: rgb(231, 231, 231);
+  --primary: rgb(117, 117, 117);
+  --header: rgb(33, 33, 33);
+  --accent: rgb(255, 0, 0);
+  --fill-primary-color: rgb(248, 248, 248);
+  --fill-text-color: rgb(94, 94, 94);
+  --fill-accent-color: rgb(231, 231, 231);
   --width: 600px;
   --column-gap: 2em;
 }
@@ -21,11 +23,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
+  color: var(--header);
 }
 
 nav {
-  background-color: var(--background-primary);
-  border-bottom: 1px solid var(--background-accent);
+  background-color: var(--fill-primary-color);
+  border-top: 5px solid var(--accent);
+  border-bottom: 1px solid var(--fill-accent-color);
   font-size: larger;
   font-variant: small-caps;
 }
@@ -44,7 +48,7 @@ nav li {
 nav a {
   color: inherit;
   display: inline-block;
-  padding: 1em 0;
+  padding: 0.67em 0;
 }
 
 nav a:hover {
@@ -68,8 +72,9 @@ p, ul {
 }
 
 footer {
-  background-color: var(--background-primary);
-  border-top: 1px solid var(--background-accent);
+  background-color: var(--fill-primary-color);
+  border-top: 1px solid var(--fill-accent-color);
+  border-bottom: 5px solid var(--accent);
   font-size: smaller;
 }
 
@@ -102,7 +107,10 @@ footer > p {
 }
 
 h1.home_heading {
-  font-size: 3em;
+  font-size: 5em;
+  font-family: inherit;
+  font-weight: lighter;
+  margin-bottom: 0.4em;
 }
 
 h2 > .fa {
