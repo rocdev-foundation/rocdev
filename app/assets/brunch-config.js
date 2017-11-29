@@ -22,7 +22,8 @@ exports.config = {
     stylesheets: {
       joinTo: 'css/app.css',
       order: {
-        before: [/^node_modules/]
+        before: [/^node_modules/],
+        after: ['css/mobile.css']
       }
     },
     templates: {

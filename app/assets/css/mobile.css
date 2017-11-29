@@ -1,0 +1,19 @@
+@media (max-width: 650px) {
+  .container {
+    width: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .social {
+    grid-template-columns: 1fr;
+  }
+
+  .social .slack {
+    grid-column: span 1;
+  }
+
+  .slack-widget {
+    grid-template-columns: 1fr;
+  }
+}
