@@ -106,13 +106,6 @@ footer > p {
   margin: auto;
 }
 
-h1.home_heading {
-  font-size: 5em;
-  font-family: inherit;
-  font-weight: lighter;
-  margin-bottom: 0.4em;
-}
-
-h2 > .fa {
-  font-size: 1.4em;
+.logo {
+  margin-top: 1em;
 }
