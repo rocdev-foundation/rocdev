@@ -9,6 +9,7 @@
 ```
 vagrant up
 vagrant ssh
+cd /vagrant
 ```
 
 Since the Vagrant image is Ubuntu, you can follow the provisioning scripts to get everything running.

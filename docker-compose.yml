@@ -8,6 +8,6 @@ services:
   http:
     build: ./infrastructure/nginx
     environment:
-      ROCDEV_APP_HOST: docker.for.mac.localhost
+      ROCDEV_APP_HOST: ${ROCDEV_APP_HOST:-docker.for.mac.localhost}
     ports:
       - '8000:80'
