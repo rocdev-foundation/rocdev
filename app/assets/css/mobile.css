@@ -1,6 +1,6 @@
 @media (max-width: 650px) {
   .container {
-    width: auto;
+    width: calc(100% - 40px);
     padding-right: 20px;
     padding-left: 20px;
   }

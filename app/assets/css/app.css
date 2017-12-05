@@ -108,4 +108,10 @@ footer > p {
 
 .logo {
   margin-top: 1em;
+  width: 100%;
+  max-height: 192px;
+}
+
+h2 .fa {
+  color: var(--accent);
 }
