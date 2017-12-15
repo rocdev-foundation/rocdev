@@ -31,7 +31,10 @@
     </main>
 
     <footer>
-      <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+      <div class="container">
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+        <p><img width="100" src="<%= static_path(@conn, "/images/DO_Powered_by_Badge_gray.svg") %>"/></p>
+      </div>
     </footer>
   </body>
 </html>
