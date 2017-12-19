@@ -1,0 +1,28 @@
+---
+- name: install erlang deb
+  apt:
+    deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+
+- name: install erlang
+  apt:
+    update_cache: yes
+    name: esl-erlang
+
+- name: install elixir
+  apt:
+    name: elixir
+
+- name: create application user
+  user:
+    name: "{{ app_user }}"
+    shell: /bin/bash
+
+- name: install python pexpect module
+  apt:
+    name: python-pexpect
+
+- name: install hex
+  become_user: "{{ app_user }}"
+  command: mix local.hex --force
+  args:
+    creates: "/home/{{ app_user }}/.mix/archives/hex-*/hex-*/.elixir"

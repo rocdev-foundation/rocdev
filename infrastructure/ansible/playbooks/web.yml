@@ -1,0 +1,16 @@
+---
+- name: base setup
+  hosts: web
+  become: yes
+  roles:
+    - role: users
+
+- name: web setup
+  hosts: web
+  become: yes
+  roles:
+    - role: web
+      site_dns: alpha.rocdev.org
+      site_admin: admin@rocdev.org
+    - role: database
+    - role: application

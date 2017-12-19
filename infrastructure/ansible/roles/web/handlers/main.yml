@@ -1,0 +1,6 @@
+---
+- name: reload nginx
+  command: nginx -s reload
+
+- name: obtain certificate
+  command: certbot --nginx -d {{ site_dns }} --redirect --agree-tos -m {{ site_admin }} --non-interactive --test-cert

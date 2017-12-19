@@ -1,0 +1,51 @@
+---
+- name: add certbot
+  apt_repository:
+    repo: 'ppa:certbot/certbot'
+  register: certbot_ppa
+
+- name: update cache
+  apt:
+    update_cache: yes
+  when: certbot_ppa.changed
+
+- name: install webserver and certificate agent
+  apt:
+    name: '{{ item }}'
+  items:
+    - python-certbot-nginx
+    - nginx
+
+- name: open firewall
+  ufw:
+    policy: allow
+    name: Nginx Full
+
+- name: add rocdev site
+  template:
+    src: rocdev.org
+    dest: /etc/nginx/sites-available/rocdev.org
+  register: rocdev_configured
+
+# copy so certbot can modify
+- name: enable rocdev site
+  copy:
+    src: /etc/nginx/sites-available/rocdev.org
+    dest: /etc/nginx/sites-enabled/rocdev.org
+    remote_src: yes
+  when: rocdev_configured.changed
+  notify:
+    - reload nginx
+    - obtain certificate
+
+- name: disable default site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify:
+    - reload nginx
+
+- name: start nginx
+  systemd:
+    name: nginx
+    state: started

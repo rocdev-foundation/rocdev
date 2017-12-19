@@ -1,0 +1,41 @@
+---
+- name: prep for ansible
+  hosts: all
+  gather_facts: no
+  user: root
+  tasks:
+    - name: install python
+      raw: 'apt-get update && apt-get install -y python'
+
+- name: setup automation
+  hosts: all
+  user: root
+  tasks:
+    - name: create automation user
+      user:
+        name: automation
+        shell: /bin/bash
+        groups: sudo
+
+    - name: give admins access to automation user
+      authorized_key:
+        user: automation
+        key: "{{ public_keys[item] }}"
+      with_items: "{{ admins }}"
+
+    - name: enable passwordless sudo for automation
+      lineinfile:
+        path: "/etc/sudoers.d/automation"
+        create: yes
+        line: "automation ALL=(ALL) NOPASSWD:ALL"
+
+    - name: disallow root login
+      replace:
+        path: /etc/ssh/sshd_config
+        regexp: PermitRootLogin yes
+        replace: PermitRootLogin no
+
+    - name: restart sshd
+      systemd:
+        name: sshd
+        state: restarted
