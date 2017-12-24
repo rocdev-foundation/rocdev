@@ -3,14 +3,15 @@
   apt:
     deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 
-- name: install erlang
+- name: install application packages
   apt:
     update_cache: yes
-    name: esl-erlang
-
-- name: install elixir
-  apt:
-    name: elixir
+    name: "{{ item }}"
+  with_items:
+    - esl-erlang
+    - elixir
+    - nodejs
+    - npm
 
 - name: create application user
   user:
