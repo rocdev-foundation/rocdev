@@ -25,7 +25,7 @@ config :logger, level: :info
 config :rocdev, Rocdev.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "rocdev",
-  password: "",
+  password: "rocdev",
   database: "rocdev",
   hostname: "localhost",
   pool_size: 10
