@@ -1,0 +1,24 @@
+---
+contributors:
+  - name: George Adams IV
+    github: geowa4
+    role: developer
+
+  - name: Chris Olin
+    github: realchrisolin
+    role: developer
+
+  - name: Kyle Macey
+    github: Kyle Macey
+    role: developer
+
+  - name: Meghan Ross
+    role: designer
+
+  - name: Dan Swain
+    github: dantswain
+    role: developer
+
+  - name: Mike Thone
+    github: mikethone
+    role: developer

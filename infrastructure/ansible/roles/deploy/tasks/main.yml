@@ -1,0 +1,17 @@
+---
+
+# - name: compile application
+#   command: MIX_ENV=prod mix compile
+#   args:
+#     chdir: "{{ app_dir }}"
+
+# - name: compile assets
+#   command: "{{ app_dir }}/assets/node_modules/.bin/brunch build --production"
+#   args:
+#     chdir: "{{ app_dir }}"
+
+# - name: migrate database
+#   command: MIX_ENV=prod mix ecto.migrate
+#   args:
+#     chdir: "{{ app_dir }}"
+

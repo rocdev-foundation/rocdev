@@ -16,6 +16,20 @@
     - python-certbot-nginx
     - nginx
 
+- name: make static files directory
+  file:
+    name: /usr/share/nginx/rocdev
+    state: directory
+
+- name: add well-known web text files
+  copy:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/rocdev/{{ item }}
+  with_items:
+    - humans.txt
+    - robots.txt
+    - security.txt
+
 - name: open firewall
   ufw:
     policy: allow
@@ -23,7 +37,7 @@
 
 - name: add rocdev site
   template:
-    src: rocdev.org
+    src: rocdev.org.conf
     dest: /etc/nginx/sites-available/rocdev.org
   register: rocdev_configured
 
