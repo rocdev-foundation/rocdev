@@ -18,10 +18,11 @@ before_install:
 install: ./ci-deps
 
 env:
-  - SLACK_INVITE_API_BASE=empty
-  - SLACK_INVITE_API_TOKEN=empty
-  - SLACK_API_BASE=empty
-  - SLACK_API_TOKEN=empty
-  - SPARKPOST_API_KEY=empty
+  global:
+    - SLACK_INVITE_API_BASE=empty
+    - SLACK_INVITE_API_TOKEN=empty
+    - SLACK_API_BASE=empty
+    - SLACK_API_TOKEN=empty
+    - SPARKPOST_API_KEY=empty
 
 script: ./ci
