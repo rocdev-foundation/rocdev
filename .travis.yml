@@ -2,11 +2,18 @@
 sudo: required
 
 language: elixir
+elixir: '1.5.2'
+otp_release: '20.2'
 
-services:
-  - docker
+before_install:
+  - nvm install 8.9.3
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq unzip
+  - wget 'https://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_amd64.zip'
+  - unzip terraform_0.11.2_linux_amd64.zip
+  - sudo mv terraform /usr/local/bin
+  - rm terraform_0.11.2_linux_amd64.zip
 
-install:
-  - docker ps -a
-script:
-  - ./ci
+install: ./ci-deps
+
+script: ./ci

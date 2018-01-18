@@ -1,7 +1,7 @@
 ---
 session_name: rocdev
 start_directory: ./
-before_script: ./ci
+before_script: ./precheck
 windows:
   - window_name: app
     layout: tiled

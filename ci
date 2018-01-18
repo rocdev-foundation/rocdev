@@ -1,33 +1,15 @@
 #!/usr/bin/env bash
-set -e
+set -ev
 
-docker build -t rocdev_http infrastructure/nginx
-docker rmi rocdev_http
+(
+  cd infrastructure/terraform
+  terraform init
+  terraform fmt -check
+)
 
-docker run \
-  --rm \
-  -it \
-  -v "$PWD"/infrastructure/terraform:/tf \
-  -w '/tf' \
-  hashicorp/terraform:0.10.7 \
-  init
-docker run \
-  --rm \
-  -it \
-  -v "$PWD"/infrastructure/terraform:/tf \
-  -w '/tf' \
-  hashicorp/terraform:0.10.7 \
-  fmt -check
+(
+  cd app
+  ./elixir_build
+  ./node_build
+)
 
-docker run \
-  --rm \
-  -it \
-  -v "$PWD"/app:/app \
-  -w '/app' \
-  -e "SLACK_INVITE_API_BASE=empty" \
-  -e "SLACK_INVITE_API_TOKEN=empty" \
-  -e "SLACK_API_BASE=empty" \
-  -e "SLACK_API_TOKEN=empty" \
-  -e "SPARKPOST_API_KEY=empty" \
-  elixir:1.5.2 ./elixir_build
-docker run --rm -it -v "$PWD"/app:/app -w '/app' node:8.6.0 ./node_build

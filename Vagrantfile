@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
     sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
 
-    su ubuntu -c 'git clone https://github.com/asdf-vm/asdf.git /home/ubuntu/.asdf --branch v0.4.0'
+    su ubuntu -c 'git clone https://github.com/asdf-vm/asdf.git /home/ubuntu/.asdf --branch v0.4.1'
     echo -e "\n. /home/ubuntu/.asdf/asdf.sh" >> /home/ubuntu/.bashrc
     echo -e "\n. /home/ubuntu/.asdf/completions/asdf.bash" >> /home/ubuntu/.bashrc
   SHELL
