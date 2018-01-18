@@ -1,6 +1,7 @@
 ---
-sudo: required
-
+os: linux
+dist: trusty
+group: stable
 language: elixir
 elixir: '1.5.2'
 otp_release: '20.2'
