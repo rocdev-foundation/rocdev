@@ -1,0 +1,9 @@
+.support {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: var(--column-gap);
+}
+
+.support > h2 {
+  grid-column: span 2;
+}

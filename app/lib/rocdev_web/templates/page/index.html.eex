@@ -140,3 +140,13 @@
     </p>
   </div>
 </section>
+<section class="support">
+  <h2><i class="fa fa-usd" aria-hidden="true"></i> Support</h2>
+  <p class="support-digitalocean">
+    This site is hosted on DigitalOcean. If you're looking for an inexpensive and straightforward cloud provider, consider signing via <a href="https://m.do.co/c/cff11ae2eb14">https://m.do.co/c/cff11ae2eb14</a>.
+  </p>
+  <p class="support-patreon">
+    We also accept support via <a href="https://www.patreon.com/geowa4">Patreon</a>.
+    All proceeds go directly back into supporting the organization and tech education.
+  </p>
+</section>
