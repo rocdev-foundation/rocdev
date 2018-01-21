@@ -16,7 +16,7 @@ config :rocdev,
 # Configures the endpoint
 config :rocdev, RocdevWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "HvI0+YAfS1rWGW2PWdeKmLrL3VCwwPxHHjqoL0Ts4uVJM/FptA7pf011mV9wiPBc",
+  secret_key_base: System.get_env("ROCDEV_SECRET_KEY_BASE") || "HvI0+YAfS1rWGW2PWdeKmLrL3VCwwPxHHjqoL0Ts4uVJM/FptA7pf011mV9wiPBc",
   render_errors: [view: RocdevWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Rocdev.PubSub,
            adapter: Phoenix.PubSub.PG2]
