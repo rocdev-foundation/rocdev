@@ -16,4 +16,12 @@
   .slack-widget {
     grid-template-columns: 1fr;
   }
+
+  .support {
+    grid-template-columns: 1fr;
+  }
+
+  .support > h2 {
+    grid-column: span 1;
+  }
 }
