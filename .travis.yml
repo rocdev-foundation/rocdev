@@ -23,6 +23,7 @@ env:
     - SLACK_INVITE_API_TOKEN=empty
     - SLACK_API_BASE=empty
     - SLACK_API_TOKEN=empty
+    - MEETUP_API_BASE=empty
     - SPARKPOST_API_KEY=empty
 
 script: ./ci

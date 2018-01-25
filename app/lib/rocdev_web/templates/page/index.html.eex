@@ -128,7 +128,7 @@
     <p>
       Twice per month, a member of the community will present a topic on which he or she is knowledgeable and wants to share.
       In the past, these topics have included deploying with Docker, building home automation, and the latest JavaScript frameworks.
-      To join us, <a href="<%= social_path(@conn, :meetup) %>">sign up with Meetup</a> to be notified of our next event.
+      To join us, <a href="<%= meetup_path(@conn, :index) %>">sign up with Meetup</a> to be notified of our next event.
     </p>
   </div>
   <div class="github">

@@ -1,0 +1,21 @@
+<%= if show_upcoming_events?(@upcoming_events) do %>
+<section class="meetup-upcoming-events">
+  <h2><i class="fa fa-arrow-right" aria-hidden="true"></i> Upcoming Events</h2>
+  <%= for event <- @upcoming_events do %>
+  <div class="meetup-event">
+    <h3><%= event["name"] %> <a href="<%= event["link"] %>" alt="Event on Meetup"><i class="fa fa-external-link" aria-hidden="true"></i></a></h3>
+    <%= {:safe, event["description"]} %>
+  </div>
+  <% end %>
+</section>
+<% end %>
+
+<section class="meetup-past-events">
+  <h2><i class="fa fa-arrow-left" aria-hidden="true"></i> Past Events</h2>
+  <%= for event <- @past_events do %>
+  <div class="meetup-event">
+    <h3><%= event["name"] %> <a href="<%= event["link"] %>" title="Event on Meetup"><i class="fa fa-external-link" aria-hidden="false" alt="External Link"></i></a></h3>
+    <%= {:safe, event["description"]} %>
+  </div>
+  <% end %>
+</section>

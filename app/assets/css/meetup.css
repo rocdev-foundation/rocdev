@@ -1,0 +1,11 @@
+.meetup-event + .meetup-event {
+  margin-top: 3em;
+}
+
+.meetup-event h3 {
+  text-align: left;
+}
+
+.meetup-event .fa-external-link {
+  font-size: smaller;
+}

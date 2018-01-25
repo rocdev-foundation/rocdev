@@ -19,7 +19,7 @@ defmodule RocdevWeb.Router do
     get "/", PageController, :index
     get "/code-of-conduct", PageController, :code_of_conduct
     get "/unsubscribe", SubscriptionController, :unsubscribe
-    get "/meetup", SocialController, :meetup
+    get "/meetup", MeetupController, :index
     get "/github", SocialController, :github
 
     delete "/subscriptions", SubscriptionController, :delete
