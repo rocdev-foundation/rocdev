@@ -5,6 +5,7 @@ After=postgresql.service
 
 [Service]
 Type=simple
+Restart=always
 EnvironmentFile=/home/{{ app_user }}/rocdev.conf
 User=rocdev
 WorkingDirectory={{ app_dir }}
