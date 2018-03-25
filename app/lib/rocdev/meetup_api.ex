@@ -2,12 +2,11 @@ defmodule Rocdev.MeetupAPI do
   @moduledoc """
   Provides access to Meetup API.
   """
-
-  @base_url Application.get_env(:rocdev, :meetup_api_base_url)
+  alias Rocdev.Config
 
   def past do
-    HTTPoison.get(
-      @base_url <> "/events",
+    Config.meetup_api_base_url <> "/events"
+    |> HTTPoison.get(
       [],
       [params: [status: "past", page: 3, desc: true]]
     )
@@ -15,8 +14,8 @@ defmodule Rocdev.MeetupAPI do
   end
 
   def upcoming do
-    HTTPoison.get(
-      @base_url <> "/events",
+    Config.meetup_api_base_url <> "/events"
+    |> HTTPoison.get(
       [],
       [params: [status: "upcoming", page: 3]]
     )

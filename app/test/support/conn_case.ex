@@ -26,7 +26,6 @@ defmodule RocdevWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Rocdev.Repo)
     unless tags[:async] do

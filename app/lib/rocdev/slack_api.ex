@@ -2,25 +2,23 @@ defmodule Rocdev.SlackAPI do
   @moduledoc """
   Provides access to Slack Invitation API.
   """
-
-  @web_base_url Application.get_env(:rocdev, :slack_api_base_url)
-  @web_token Application.get_env(:rocdev, :slack_api_token)
-  @invite_base_url Application.get_env(:rocdev, :slack_invite_base_url)
-  @invite_token Application.get_env(:rocdev, :slack_invite_api_token)
+  alias Rocdev.Config
 
   def invite(email) do
-    HTTPoison.post(
-      @invite_base_url <> "/users.admin.invite",
-      {:form, [email: email, resend: true, token: @invite_token]}
+    "#{Config.slack_invite_base_url}/users.admin.invite"
+    |> HTTPoison.post(
+      {
+        :form, [email: email, resend: true, token: Config.slack_invite_token]
+      }
     )
     |> handle_response
   end
 
   def members do
-    HTTPoison.get(
-      @web_base_url <> "/users.list",
-      [], 
-      [params: [presence: 1, token: @web_token]]
+    "#{Config.slack_api_base_url}/users.list"
+    |> HTTPoison.get(
+      [],
+      [params: [presence: 1, token: Config.slack_api_token]]
     )
     |> handle_response
   end

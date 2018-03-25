@@ -20,7 +20,7 @@ defmodule RocdevWeb.SlackController do
         end
         conn
         |> put_flash(
-             :error, 
+             :error,
              "An invitation was sent recently to #{email}."
            )
         |> redirect(to: page_path(conn, :index))
@@ -30,7 +30,7 @@ defmodule RocdevWeb.SlackController do
         end
         conn
         |> put_flash(
-             :error, 
+             :error,
              "Could not invite #{email}. Please, try again later."
            )
         |> redirect(to: page_path(conn, :index))
