@@ -37,6 +37,11 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision "shell", name: "install", inline: <<-SHELL
     echo -e '\nexport ROCDEV_APP_HOST=$(route | awk "/default/ { print \\$2 }")' >> /home/ubuntu/.bashrc
+    echo -e '\nexport MEETUP_API_BASE="" >> /home/ubuntu/.bashrc
+    echo -e '\nexport SLACK_INVITE_API_BASE="" >> /home/ubuntu/.bashrc
+    echo -e '\nexport SLACK_API_BASE="" >> /home/ubuntu/.bashrc
+    echo -e '\nexport SLACK_API_TOKEN="" >> /home/ubuntu/.bashrc
+    echo -e '\nexport ROCDEV_APP_HOST=$(route | awk "/default/ { print \\$2 }")' >> /home/ubuntu/.bashrc
     apt-get update
     apt-get install -y \
       make build-essential zlib1g-dev libsqlite3-dev libncurses5-dev \
