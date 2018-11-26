@@ -15,6 +15,8 @@ defmodule RocdevWeb.ChannelCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       # Import conveniences for testing with channels
@@ -26,9 +28,9 @@ defmodule RocdevWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Rocdev.Repo)
+    :ok = Sandbox.checkout(Rocdev.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Rocdev.Repo, {:shared, self()})
+      Sandbox.mode(Rocdev.Repo, {:shared, self()})
     end
     :ok
   end

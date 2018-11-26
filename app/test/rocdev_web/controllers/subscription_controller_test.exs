@@ -1,6 +1,8 @@
 defmodule RocdevWeb.SubscriptionControllerTest do
   use RocdevWeb.ConnCase
 
+  alias Plug.Conn
+
   describe "GET /unsubscribe" do
     test "with no email param", %{conn: conn} do
       conn = get conn, "/unsubscribe"
@@ -42,7 +44,7 @@ defmodule RocdevWeb.SubscriptionControllerTest do
       test_process = self()
       Bypass.expect_once bypass, "PUT", "/suppression-list/#{email}", fn bpconn ->
         send(test_process, :got_request)
-        Plug.Conn.resp(bpconn, 200, Poison.encode! %{results: %{}})
+        Conn.resp(bpconn, 200, Poison.encode! %{results: %{}})
       end
 
       conn = delete conn, "/subscriptions", %{unsubscribe: %{email: email}}

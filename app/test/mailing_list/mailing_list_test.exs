@@ -2,6 +2,7 @@ defmodule MailingListTest do
   use ExUnit.Case
 
   alias Rocdev.MailingList
+  alias Plug.Conn
 
   import ExUnit.CaptureLog
 
@@ -15,7 +16,7 @@ defmodule MailingListTest do
       email = "foo@bar.com"
 
       Bypass.expect_once bypass, "PUT", "/suppression-list/#{email}", fn bpconn ->
-        Plug.Conn.resp(bpconn, 200, Poison.encode! %{results: %{}})
+        Conn.resp(bpconn, 200, Poison.encode! %{results: %{}})
       end
 
       assert :ok == MailingList.unsubscribe(email)
