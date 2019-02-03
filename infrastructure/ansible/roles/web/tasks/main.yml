@@ -12,7 +12,7 @@
 - name: install webserver and certificate agent
   apt:
     name: '{{ item }}'
-  items:
+  with_items:
     - python-certbot-nginx
     - nginx
 
