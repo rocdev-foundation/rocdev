@@ -9,8 +9,8 @@ Restart=always
 EnvironmentFile=/home/{{ app_user }}/rocdev.conf
 User=rocdev
 WorkingDirectory={{ app_dir }}
-ExecStartPre=/usr/local/bin/mix ecto.migrate
-ExecStart=/usr/local/bin/mix phx.server
+ExecStartPre=/usr/bin/mix ecto.migrate
+ExecStart=/usr/bin/mix phx.server
 
 [Install]
 WantedBy=multi-user.target
