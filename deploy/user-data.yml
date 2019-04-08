@@ -1,0 +1,21 @@
+#cloud-config
+users:
+  - name: rdadm
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKv0qAuJaZE43zqCjd8TOwC+58QTiy9LfkYlVDeAQhtr geowa4
+  - name: rdapp
+    sudo: false
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKv0qAuJaZE43zqCjd8TOwC+58QTiy9LfkYlVDeAQhtr geowa4
+package_update: true
+packages:
+  - python3
+  - python3-pip
+  - git
+  - nginx
+  - software-properties-common
+runcmd:
+  - pip3 install pipenv
+  - git clone https://github.com/585-software/rocdev.git /home/rdapp/rocdev --branch v2
+  - chown rdapp:rdapp -R /home/rdapp/rocdev

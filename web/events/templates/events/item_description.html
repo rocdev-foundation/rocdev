@@ -1,0 +1,7 @@
+{{ obj.description|safe }}
+<p>
+{% if obj.venue %}
+  Hosted at
+  <a href="https://www.google.com/maps/search/?api=1&query={{ obj.venue.name }}+{{ obj.venue.address_1 }}+{{ obj.venue.city }}+{{ obj.venue.state }}+{{ obj.venue.zip }}">{{obj.venue.name }}</a>.
+{% endif %}
+</p>

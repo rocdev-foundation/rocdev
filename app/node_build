@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-cd assets
-npm install
-if [ "$BUILD_ENV" == "production" ]
-then
-  npm run deploy
-fi

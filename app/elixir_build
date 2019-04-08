@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-if [ "$BUILD_ENV" != "" ]
-then
-  export MIX_ENV="$BUILD_ENV"
-fi
-mix credo --strict
-mix compile

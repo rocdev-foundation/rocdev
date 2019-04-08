@@ -1,19 +1,22 @@
 [[source]]
-
-url = "https://pypi.python.org/simple"
-verify_ssl = true
 name = "pypi"
-
-
-[packages]
-
-
+url = "https://pypi.org/simple"
+verify_ssl = true
 
 [dev-packages]
-
+pre-commit = "*"
+flake8 = "*"
+yapf = "*"
+pylint = "*"
+mypy = "*"
 ansible = "*"
+ansible-lint = "*"
 
+[packages]
+django = "*"
+django-bootstrap4 = "*"
+requests = "*"
+django-ical = "*"
 
 [requires]
-
 python_version = "3.6"

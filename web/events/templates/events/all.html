@@ -1,0 +1,19 @@
+{% extends 'rocdev/base.html' %}
+{% load bootstrap4 %}
+{% block title %}Events{% endblock %}
+{% block main %}
+<h1>Upcoming Events</h1>
+{% for event in events %}
+<div class="row">
+  <div class="col">
+    <h2 class="d-flex">
+      <span class="flex-grow-1 text-truncate">{{ event.name }}</span>
+      <a rel="external" href="{{ event.link|safe }}" title="See this on Meetup.">&neArr;</a>
+    </h2>
+    <p>
+      {{ event.description|safe }}
+    </p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

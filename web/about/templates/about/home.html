@@ -1,0 +1,82 @@
+{% extends 'rocdev/base.html' %}
+{% load bootstrap4 %}
+{% block title %}Home{% endblock %}
+{% block main %}
+<section class="logo row">
+  <div class="col-sm-9 col-md-8 mx-auto">
+    {% include 'rocdev/logo.html' %}
+  </div>
+</section>
+<section class="mission row">
+  <div class="col">
+    <p>
+      We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
+      We are Software and Quality Assurance Engineers, Product Managers and Entrepreneurs, and Students and Teachers looking to share our experiences and knowledge with one another in an effort to support and grow the community as a whole.
+    </p>
+  </div>
+</section>
+<section class="events mt-4">
+  <h2>Upcoming Events</h2>
+  <div class="row">
+    <div class="col">
+      {% if next_event %}
+      <h4>
+        Next: {{ next_event.name }}
+        <a class="" rel="external" href="{{ next_event.link|safe }}" title="See this on Meetup.">&neArr;</a>
+       </h4>
+      <p>
+        {{ next_event.description|safe }}
+      </p>
+      {% else %}
+      <p>No upcoming events.</p>
+      {% endif %}
+    </div>
+    <div class="col">
+      <p>
+        We gather at least once per month to learn something from fellow members, hack on projects, or just hang out at a bar or arcade.
+        Use the links below to see what else is happening and get notified when another event is scheduled.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {% url 'events_index' as events_all_url %}
+      {% bootstrap_button "See More Events" href=events_all_url button_class="btn-secondary btn-block" %}
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          {% url 'events_rss' as events_rss_url %}
+          {% bootstrap_button "RSS" href=events_rss_url button_class="btn-secondary btn-block" %}
+          </div>
+          <div class="col">
+            {% url 'events_atom' as events_atom_url %}
+            {% bootstrap_button "Atom" href=events_atom_url button_class="btn-secondary btn-block" %}
+          </div>
+          <div class="col">
+            {% url 'events_ics' as events_ical_url %}
+            {% bootstrap_button "iCal" href=events_ical_url button_class="btn-secondary btn-block" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="chat mt-4">
+<h2>Chat</h2>
+<div class="row">
+  <div class="col">
+    <p>
+      TODO: form
+    </p>
+  </div>
+  <div class="col">
+    <p>
+      Everyday, we chat on Slack, helping each other with baffling stack traces, talk about the latest tech news, and share career advice.
+      We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
+      Join us; we're friendly.
+    </p>
+  </div>
+</div>
+</section>
+{% endblock %}
