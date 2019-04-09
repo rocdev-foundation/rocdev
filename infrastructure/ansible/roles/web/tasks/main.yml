@@ -1,7 +1,7 @@
 ---
 - name: add certbot
   apt_repository:
-    repo: 'ppa:certbot/certbot'
+    repo: "ppa:certbot/certbot"
   register: certbot_ppa
 
 - name: update cache
@@ -11,23 +11,29 @@
 
 - name: install webserver and certificate agent
   apt:
-    name: '{{ item }}'
+    name: "{{ item }}"
   with_items:
     - python-certbot-nginx
     - nginx
 
 - name: make static files directory
   file:
-    name: /usr/share/nginx/rocdev
+    name: /usr/share/nginx/rocdev/.well-known
     state: directory
 
-- name: add well-known web text files
+- name: add well-known web text files at root
   copy:
     src: "{{ item }}"
     dest: /usr/share/nginx/rocdev/{{ item }}
   with_items:
     - humans.txt
     - robots.txt
+
+- name: add well-known web text files
+  copy:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/rocdev/.well-known/{{ item }}
+  with_items:
     - security.txt
 
 - name: open firewall

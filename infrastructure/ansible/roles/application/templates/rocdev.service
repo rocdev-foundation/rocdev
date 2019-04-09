@@ -1,16 +1,14 @@
 [Unit]
-Description=RocDev Aplication
-Requires=postgresql.service
-After=postgresql.service
+Description=RocDev Web Aplication
 
 [Service]
 Type=simple
 Restart=always
 EnvironmentFile=/home/{{ app_user }}/rocdev.conf
-User=rocdev
-WorkingDirectory={{ app_dir }}
-ExecStartPre=/usr/bin/mix ecto.migrate
-ExecStart=/usr/bin/mix phx.server
+User={{ app_user }}
+WorkingDirectory={{ web_dir }}
+ExecStartPre=/usr/local/bin/pipenv run ./manage.py migrate
+ExecStart=/usr/local/bin/pipenv run ./manage.py runserver
 
 [Install]
 WantedBy=multi-user.target

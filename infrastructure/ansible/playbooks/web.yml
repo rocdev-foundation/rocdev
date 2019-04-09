@@ -10,7 +10,6 @@
   become: yes
   roles:
     - role: web
-      site_dns: rocdev.org
+      site_dns: roc.dev
       site_admin: admin@rocdev.org
-    - role: database
     - role: application

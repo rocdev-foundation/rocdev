@@ -1,55 +1,13 @@
 ---
 - name: deploy application
-  hosts: web
+  hosts: v2
   tasks:
     - name: clone repo
       become: yes
-      become_user: rocdev
+      become_user: "{{ app_user }}"
       git:
         repo: https://github.com/585-software/rocdev.git
         dest: "{{ clone_dir }}"
-
-    - name: ensure migrations directory exists
-      become: yes
-      become_user: rocdev
-      file:
-        name: "{{ app_dir }}/priv/repo/migrations"
-        state: directory
-
-    - name: install elixir dependencies
-      become: yes
-      become_user: rocdev
-      command: mix deps.get --only prod
-      args:
-        chdir: "{{ app_dir }}"
-
-    - name: install node dependencies
-      become: yes
-      become_user: rocdev
-      command: npm install
-      args:
-        chdir: "{{ app_dir }}/assets"
-
-    - name: compile elixir application
-      become: yes
-      become_user: rocdev
-      shell: env $(cat /home/{{ app_user }}/rocdev.conf | xargs) mix compile
-      args:
-        chdir: "{{ app_dir }}"
-
-    - name: compile static assets
-      become: yes
-      become_user: rocdev
-      shell: env $(cat /home/{{ app_user }}/rocdev.conf | xargs) nodejs ./node_modules/.bin/brunch build --production
-      args:
-        chdir: "{{ app_dir }}/assets"
-
-    - name: digest static assets
-      become: yes
-      become_user: rocdev
-      shell: env $(cat /home/{{ app_user }}/rocdev.conf | xargs) mix phx.digest
-      args:
-        chdir: "{{ app_dir }}"
 
     - name: enable application
       become: yes

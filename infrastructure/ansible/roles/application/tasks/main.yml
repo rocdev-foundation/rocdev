@@ -1,43 +1,8 @@
 ---
-- name: install erlang deb
-  apt:
-    deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
-
-- name: install application packages
-  apt:
-    update_cache: yes
-    name: "{{ item }}"
-  with_items:
-    - esl-erlang
-    - elixir
-    - nodejs
-    - npm
-
-- name: create application user
-  user:
-    name: "{{ app_user }}"
-    shell: /bin/bash
-
 - name: allow application user services to linger
   command: loginctl enable-linger {{ app_user }}
   args:
     creates: /var/lib/systemd/linger/{{ app_user }}
-
-- name: install python pexpect module
-  apt:
-    name: python-pexpect
-
-- name: install hex
-  become_user: "{{ app_user }}"
-  command: mix local.hex --force
-  args:
-    creates: "/home/{{ app_user }}/.mix/archives/hex-*/hex-*/.elixir"
-
-- name: install rebar
-  become_user: "{{ app_user }}"
-  command: mix local.rebar --force
-  args:
-    creates: "/home/{{ app_user }}/.mix/rebar"
 
 - name: set environment variables for unit
   become_user: "{{ app_user }}"
