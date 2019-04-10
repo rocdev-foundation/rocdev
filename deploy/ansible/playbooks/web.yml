@@ -1,0 +1,7 @@
+---
+- name: web setup
+  hosts: v2
+  become: yes
+  roles:
+    - web
+    - application

@@ -9,6 +9,13 @@
         repo: https://github.com/585-software/rocdev.git
         dest: "{{ clone_dir }}"
 
+    - name: install application dependencies
+      become: yes
+      become_user: "{{ app_user }}"
+      command: pipenv install
+      args:
+        chdir: "{{ clone_dir }}"
+
     - name: enable application
       become: yes
       become_user: root

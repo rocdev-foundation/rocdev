@@ -46,7 +46,10 @@ LOGGING = {
     },
 }
 
-ALLOWED_HOSTS = ['localhost', 'local.rocdev.org', 'local.roc.dev']
+if os.getenv('ROCDEV_HOST') is not None:
+    ALLOWED_HOSTS = [os.getenv('ROCDEV_HOST')]
+else:
+    ALLOWED_HOSTS = ['localhost', 'local.rocdev.org', 'local.roc.dev']
 
 # Application definition
 

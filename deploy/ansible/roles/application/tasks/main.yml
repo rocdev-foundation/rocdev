@@ -1,9 +1,4 @@
 ---
-- name: allow application user services to linger
-  command: loginctl enable-linger {{ app_user }}
-  args:
-    creates: /var/lib/systemd/linger/{{ app_user }}
-
 - name: set environment variables for unit
   become_user: "{{ app_user }}"
   template:

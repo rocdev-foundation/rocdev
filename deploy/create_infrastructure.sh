@@ -8,6 +8,7 @@ set \
   -o xtrace
 
 # create server
+doctl compute tag create v2
 DROPLET_ID=$(
   doctl compute droplet create rocdev-v2 \
     --wait \
@@ -15,12 +16,13 @@ DROPLET_ID=$(
     --image ubuntu-18-04-x64 \
     --size s-1vcpu-1gb \
     --user-data-file user-data.yml \
+    --tag-name v2 \
     --output json \
   | \
   jq -r '.[0].id'
 )
 
-# firewall egress to dns
+# firewall egress to dns and http
 doctl compute firewall create \
   --name rocdev-common-egress \
   --droplet-ids "$DROPLET_ID" \

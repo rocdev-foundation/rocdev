@@ -11,10 +11,9 @@
 
 - name: install webserver and certificate agent
   apt:
-    name: "{{ item }}"
-  with_items:
-    - python-certbot-nginx
-    - nginx
+    name:
+      - python-certbot-nginx
+      - nginx
 
 - name: make static files directory
   file:
@@ -39,6 +38,7 @@
 - name: open firewall
   ufw:
     policy: allow
+    direction: incoming
     name: Nginx Full
 
 - name: add rocdev site
