@@ -63,20 +63,37 @@
   </div>
 </section>
 <section class="chat mt-4">
-<h2>Chat</h2>
-<div class="row">
-  <div class="col">
-    <p>
-      TODO: form
-    </p>
+  <div class="row">
+    <div class="col">
+      <div class="slack">
+        <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
+        <div class="slack-widget">
+          <p class="slack-description">
+            Everyday, we chat on Slack, helping each other with a baffling stack trace, talking about the latest tech news, and sharing career advice.
+            We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
+            Join us; we're friendly.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="slack-registration" style="margin-top: 48px;">
+        {% if has_registered %}
+          <p class="slack-description">
+            <em>Thanks for registering. An invite is on its way to your inbox.</em>
+          </p>
+        {% else %}
+          <p class="slack-description">
+            Join the {{ num_members }} members of RocDev Slack. {{ num_active }} members are active right now.
+          </p>
+          <form action="{% url 'about_index' %}" method="post">
+            {% csrf_token %}
+            {{ chat_form.as_p }}
+            <input type="submit" value="Submit" />
+          </form>
+        {% endif %}
+      </div>
+    </div>
   </div>
-  <div class="col">
-    <p>
-      Everyday, we chat on Slack, helping each other with baffling stack traces, talk about the latest tech news, and share career advice.
-      We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
-      Join us; we're friendly.
-    </p>
-  </div>
-</div>
 </section>
 {% endblock %}
