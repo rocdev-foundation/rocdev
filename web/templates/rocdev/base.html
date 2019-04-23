@@ -1,84 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% load bootstrap4 %}
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="RocDev - a community for software professionals in Rochester, NY"/>
+
     <title>RocDev - {% block title %}{% endblock %}</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Crimson+Text"
-      rel="stylesheet"
-    />
-    {% bootstrap_css %}
-    <style>
-      html, body {
-        height: 100%;
-      }
-      .container {
-        max-width: 768px;
-      }
-      .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-        font-family: 'Crimson Text', serif;
-      }
-      p {
-        text-align: justify;
-      }
-      footer {
-        text-align: center;
-      }
-    </style>
-    <link type="application/atom+xml" rel="alternate" href="{% url 'events_atom' %}"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Raleway:100" rel="stylesheet"/>
+    <link href="https://unpkg.com/normalize.css@8.0.1/normalize.css" rel="stylesheet"/>
+    {% load static %}
+    <link href="{% static 'rocdev/css/app.css' %}" rel="stylesheet"/>
+    <link xmlns="http://www.w3.org/1999/xhtml" rel="shortcut icon" href="/images/favicon-6b53e5c1b6f7c2f7874265f448df8f25.svg?vsn=d"/>
   </head>
-  <body class="d-flex flex-column">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-      <a class="navbar-brand" href="{% url 'about_index' %}">
-        {% include 'rocdev/logo.html' with width='4em' %}
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarSupportedContent" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about_index' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about_coc' %}">Code of Conduct</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'events_index' %}">Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://patreon.com/geowa4" rel="external">Donate</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <main class="container flex-grow-1 mt-4">
-      {% bootstrap_messages %}
-      {% block main %}{% endblock %}
-    </main>
-    <footer class="navbar bg-light border-top mt-4">
-      <div class="container mt-2">
-        <div class="row">
-          <p class="col">
-            Coordinating events, moderating slack, and operating our platforms takes time and money.
-            Please, consider supporting us through this
-            <a rel="external" href="https://patreon.com/geowa4">Patreon</a>.
-          </p>
-        {% comment %} </div>
-        <div class="row"> {% endcomment %}
-          <p class="col">
-            This work is licensed under a
-            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"
-              >Creative Commons Attribution 4.0 International License</a
-            >.
-          </p>
+
+  <body>
+    <nav role="navigation">
+      <div class="nav-container">
+        <a class="nav-brand" href="{% url 'about_index' %}">
+          {% include 'rocdev/logo.html' with width='4em' %}
+        </a>
+        <div class="nav-links">
+          <ul>
+            <li><a href="{% url 'about_index' %}">Home</a></li>
+            <li><a href="{% url 'about_coc' %}">Code of Conduct</a></li>
+            <li><a href="{% url 'events_index' %}">Events</a></li>
+            <li><a href="https://patreon.com/geowa4" rel="external">Donate</a></li>
+          </ul>
         </div>
       </div>
+    </nav>
+
+    <main class="container" role="main">
+      {% comment %} {% bootstrap_messages %} {% endcomment %}
+      {% block main %}{% endblock %}
+    </main>
+    <footer>
+      <div class="container row">
+        <p class="col">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+        <p class="col">
+          Coordinating events, moderating slack, and operating our platforms takes time and money.
+          Please, consider supporting us through this
+          <a rel="external" href="https://patreon.com/geowa4">Patreon</a>.
+        </p>
+      </div>
     </footer>
-    {% bootstrap_javascript jquery='slim' %}
   </body>
 </html>

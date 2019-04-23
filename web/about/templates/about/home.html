@@ -2,12 +2,10 @@
 {% load bootstrap4 %}
 {% block title %}Home{% endblock %}
 {% block main %}
-<section class="logo row">
-  <div class="col-sm-9 col-md-8 mx-auto">
-    {% include 'rocdev/logo.html' %}
-  </div>
+<section class="logo">
+  {% include 'rocdev/logo.html' with width="75%" %}
 </section>
-<section class="mission row">
+<section class="mission">
   <div class="col">
     <p>
       We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
@@ -15,7 +13,7 @@
     </p>
   </div>
 </section>
-<section class="events mt-4">
+<section class="events">
   <h2>Upcoming Events</h2>
   <div class="row">
     <div class="col">
@@ -38,7 +36,7 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="event-links row">
     <div class="col">
       {% url 'events_index' as events_all_url %}
       {% bootstrap_button "See More Events" href=events_all_url button_class="btn-secondary btn-block" %}
@@ -62,7 +60,7 @@
     </div>
   </div>
 </section>
-<section class="chat mt-4">
+<section class="chat">
 <h2>Chat</h2>
 <div class="row">
   <div class="col">
