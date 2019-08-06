@@ -49,7 +49,12 @@ LOGGING = {
 if os.getenv('ROCDEV_HOST') is not None:
     ALLOWED_HOSTS = [os.getenv('ROCDEV_HOST')]
 else:
-    ALLOWED_HOSTS = ['localhost', 'local.rocdev.org', 'local.roc.dev']
+    ALLOWED_HOSTS = ['localhost', 'local.rocdev.org', 'local.roc.dev', '127.0.0.1']
+
+# Slack API config
+SLACK_API_TOKEN = os.getenv('SLACK_API_TOKEN', default='bogus_token')
+SLACK_INVITE_API_BASE = os.getenv('SLACK_INVITE_API_BASE', default='https://slack.com/api/users.admin.invite')
+SLACK_API_BASE = os.getenv('SLACK_API_BASE', default='https://slack.com/api')
 
 # Application definition
 
