@@ -73,7 +73,11 @@
       <div class="slack-registration" style="margin-top: 48px;">
         {% if has_registered %}
           <p class="slack-description">
-            <em>Thanks for registering. An invite is on its way to your inbox.</em>
+            {% if error %}
+                <em>Sorry, there was an error &mdash {{ error }}</em>
+            {% else %}
+                <em>Thanks for registering. An invite is on its way to your inbox.</em>
+            {% endif %}
           </p>
         {% else %}
           <p class="slack-description">
