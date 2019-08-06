@@ -2,12 +2,10 @@
 {% load bootstrap4 %}
 {% block title %}Home{% endblock %}
 {% block main %}
-<section class="logo row">
-  <div class="col-sm-9 col-md-8 mx-auto">
-    {% include 'rocdev/logo.html' %}
-  </div>
+<section class="logo">
+  {% include 'rocdev/logo.html' with width="25%" %}
 </section>
-<section class="mission row">
+<section class="mission">
   <div class="col">
     <p>
       We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
@@ -15,7 +13,7 @@
     </p>
   </div>
 </section>
-<section class="events mt-4">
+<section class="events">
   <h2>Upcoming Events</h2>
   <div class="row">
     <div class="col">
@@ -30,15 +28,41 @@
       {% else %}
       <p>No upcoming events.</p>
       {% endif %}
-    </div>
-    <div class="col">
       <p>
         We gather at least once per month to learn something from fellow members, hack on projects, or just hang out at a bar or arcade.
         Use the links below to see what else is happening and get notified when another event is scheduled.
       </p>
     </div>
+    <div class="col">
+      <div class="slack">
+        <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
+        <div class="slack-widget">
+          <p class="slack-description">
+            Everyday, we chat on Slack, helping each other with a baffling stack trace, talking about the latest tech news, and sharing career advice.
+            We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
+            Join us; we're friendly.
+          </p>
+        </div>
+      <div class="slack-registration" style="margin-top: 48px;">
+        {% if has_registered %}
+          <p class="slack-description">
+            <em>Thanks for registering. An invite is on its way to your inbox.</em>
+          </p>
+        {% else %}
+          <p class="slack-description">
+            Join the {{ num_members }} members of RocDev Slack. {{ num_active }} members are active right now.
+          </p>
+          <form action="{% url 'about_index' %}" method="post">
+            {% csrf_token %}
+            {{ chat_form.as_p }}
+            <input type="submit" value="Submit" />
+          </form>
+        {% endif %}
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
+  <div class="event-links row">
     <div class="col">
       {% url 'events_index' as events_all_url %}
       {% bootstrap_button "See More Events" href=events_all_url button_class="btn-secondary btn-block" %}
@@ -58,40 +82,6 @@
             {% bootstrap_button "iCal" href=events_ical_url button_class="btn-secondary btn-block" %}
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="chat mt-4">
-  <div class="row">
-    <div class="col">
-      <div class="slack">
-        <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
-        <div class="slack-widget">
-          <p class="slack-description">
-            Everyday, we chat on Slack, helping each other with a baffling stack trace, talking about the latest tech news, and sharing career advice.
-            We have channels for popular languages like JavaScript and Python as well as popular topics like cryptocurrencies and working remotely.
-            Join us; we're friendly.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="slack-registration" style="margin-top: 48px;">
-        {% if has_registered %}
-          <p class="slack-description">
-            <em>Thanks for registering. An invite is on its way to your inbox.</em>
-          </p>
-        {% else %}
-          <p class="slack-description">
-            Join the {{ num_members }} members of RocDev Slack. {{ num_active }} members are active right now.
-          </p>
-          <form action="{% url 'about_index' %}" method="post">
-            {% csrf_token %}
-            {{ chat_form.as_p }}
-            <input type="submit" value="Submit" />
-          </form>
-        {% endif %}
       </div>
     </div>
   </div>
