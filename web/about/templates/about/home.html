@@ -2,10 +2,12 @@
 {% load bootstrap4 %}
 {% block title %}Home{% endblock %}
 {% block main %}
-<section class="logo">
-  {% include 'rocdev/logo.html' with width="75%" %}
+<section class="logo row">
+  <div class="col-sm-9 col-md-8 mx-auto">
+    {% include 'rocdev/logo.html' %}
+  </div>
 </section>
-<section class="mission">
+<section class="mission row">
   <div class="col">
     <p>
       We are a community of professionals in disciplines related to software development in the Greater Rochester Area.
@@ -13,8 +15,16 @@
     </p>
   </div>
 </section>
-<section class="events">
+<section class="events mt-4">
   <h2>Upcoming Events</h2>
+  <div class="row">
+    <div class="col">
+      <p>
+        We gather at least once per month to learn something from fellow members, hack on projects, or just hang out at a bar or arcade.
+        Use the links below to see what else is happening and get notified when another event is scheduled.
+      </p>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
       {% if next_event %}
@@ -29,38 +39,23 @@
       <p>No upcoming events.</p>
       {% endif %}
     </div>
-    <div class="col">
-      <p>
-        We gather at least once per month to learn something from fellow members, hack on projects, or just hang out at a bar or arcade.
-        Use the links below to see what else is happening and get notified when another event is scheduled.
-      </p>
-    </div>
   </div>
-  <div class="event-links row">
-    <div class="col">
+  <div class="row d-flex flex-row justify-content-between">
+    <div class="col mt-2">
       {% url 'events_index' as events_all_url %}
       {% bootstrap_button "See More Events" href=events_all_url button_class="btn-secondary btn-block" %}
     </div>
-    <div class="col">
-      <div class="row">
-        <div class="col">
-          {% url 'events_rss' as events_rss_url %}
-          {% bootstrap_button "RSS" href=events_rss_url button_class="btn-secondary btn-block" %}
-          </div>
-          <div class="col">
-            {% url 'events_atom' as events_atom_url %}
-            {% bootstrap_button "Atom" href=events_atom_url button_class="btn-secondary btn-block" %}
-          </div>
-          <div class="col">
-            {% url 'events_ics' as events_ical_url %}
-            {% bootstrap_button "iCal" href=events_ical_url button_class="btn-secondary btn-block" %}
-          </div>
-        </div>
-      </div>
+    <div class="col mt-2 d-flex flex-row justify-content-between">
+      {% url 'events_rss' as events_rss_url %}
+      {% bootstrap_button "RSS" href=events_rss_url button_class="btn-secondary" %}
+      {% url 'events_atom' as events_atom_url %}
+      {% bootstrap_button "Atom" href=events_atom_url button_class="btn-secondary" %}
+      {% url 'events_ics' as events_ical_url %}
+      {% bootstrap_button "iCal" href=events_ical_url button_class="btn-secondary" %}
     </div>
   </div>
 </section>
-<section class="chat">
+<section class="chat mt-4">
 <h2>Chat</h2>
 <div class="row">
   <div class="col">
