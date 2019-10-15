@@ -4,6 +4,7 @@ import requests
 from django.conf import settings
 from django.shortcuts import render
 from .forms import ChatSignupForm
+from . import members, active_members
 
 logger = logging.getLogger('rocdev')
 
@@ -37,8 +38,8 @@ def index(request):
         'next_event': events.get_next(),
         'has_registered': False,
         'chat_form': None,
-        'num_members': 100,
-        'num_active': 50,
+        'num_members': len(members()),
+        'num_active': len(active_members()),
         'error': None
     }
     if request.method == 'POST':
