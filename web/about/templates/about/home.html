@@ -85,8 +85,8 @@
           </p>
           <form action="{% url 'about_index' %}" method="post">
             {% csrf_token %}
-            {{ chat_form.as_p }}
-            <input type="submit" value="Submit" />
+            {% bootstrap_form chat_form show_label=False %}
+            {% bootstrap_button 'Submit' button_type='submit' %}
           </form>
         {% endif %}
       </div>

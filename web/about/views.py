@@ -7,22 +7,27 @@ from .forms import ChatSignupForm
 
 logger = logging.getLogger('rocdev')
 
-
 SLACK_ERRORS = {
     'already_in_team': 'You are already a member of RocDev',
     'already_invited': 'We already sent you an email invitation',
     'already_in_team_invited_user': 'You are already a member of RocDev',
     'channel_not_found': 'Provided channel ID does not match a real channel',
     'invalid_email': 'Slack thinks you have an invalid email address',
-    'invalid_auth': 'Security configuration error, please contact the webmaster',
+    'invalid_auth':
+    'Security configuration error, please contact the webmaster',
     'invite_limit_reached': 'The maximum number of invites is reached',
-    'missing_scope': 'Security configuration error, please contact the webmaster',
-    'not_allowed': ' Security configuration error, please contact the webmaster',
-    'not_allowed_token_type': 'Security configuration error, please contact the webmaster',
+    'missing_scope':
+    'Security configuration error, please contact the webmaster',
+    'not_allowed':
+    ' Security configuration error, please contact the webmaster',
+    'not_allowed_token_type':
+    'Security configuration error, please contact the webmaster',
     'not_authed': 'Security configuration error, please contact the webmaster',
-    'requires_one_channel': 'Security configuration error, please contact the webmaster',
+    'requires_one_channel':
+    'Security configuration error, please contact the webmaster',
     'sent_recently': 'We already sent you an email invitation',
-    'ultra_restricted': 'Security configuration error, please contact the webmaster',
+    'ultra_restricted':
+    'Security configuration error, please contact the webmaster',
     'user_disabled': 'This Slack user account has been deactivated'
 }
 
@@ -43,7 +48,9 @@ def index(request):
             # https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
             # for unofficial docs.
             email = chat_form.cleaned_data['email']
-            url = f'{settings.SLACK_INVITE_API_BASE}?token={settings.SLACK_API_TOKEN}&email={email}&resend=true'
+            url = (
+                f'{settings.SLACK_INVITE_API_BASE}'
+                f'?token={settings.SLACK_API_TOKEN}&email={email}&resend=true')
             response = requests.get(url)
             payload = response.json()
             if payload['ok'] is False:
@@ -54,8 +61,7 @@ def index(request):
     else:
         chat_form = ChatSignupForm()
         context.update({'chat_form': chat_form})
-    return render(
-        request, 'about/home.html', context=context)
+    return render(request, 'about/home.html', context=context)
 
 
 def code_of_conduct(request):
