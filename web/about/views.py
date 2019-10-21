@@ -49,9 +49,10 @@ def index(request):
             # https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
             # for unofficial docs.
             email = chat_form.cleaned_data['email']
-            url = (
-                f'{settings.SLACK_INVITE_API_BASE}'
-                f'?token={settings.SLACK_API_TOKEN}&email={email}&resend=true')
+            url = (f'{settings.SLACK_INVITE_API_BASE}'
+                   f'?token={settings.SLACK_INVITE_API_TOKEN}'
+                   f'&email={email}&resend=true')
+            logger.info(url)
             response = requests.get(url)
             payload = response.json()
             if payload['ok'] is False:

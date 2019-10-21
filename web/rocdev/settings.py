@@ -54,12 +54,14 @@ else:
     ]
 
 # Slack API config
-SLACK_API_TOKEN = os.getenv('ROCDEV_SLACK_API_TOKEN', default='bogus_token')
 SLACK_INVITE_API_BASE = os.getenv(
     'ROCDEV_SLACK_INVITE_API_BASE',
     default='https://slack.com/api/users.admin.invite')
+SLACK_INVITE_API_TOKEN = os.getenv(
+    'ROCDEV_SLACK_INVITE_API_TOKEN', default='not_a_real_token')
 SLACK_API_BASE = os.getenv(
     'ROCDEV_SLACK_API_BASE', default='https://slack.com/api')
+SLACK_API_TOKEN = os.getenv('ROCDEV_SLACK_API_TOKEN', default='bogus_token')
 
 # Application definition
 
