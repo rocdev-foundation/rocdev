@@ -38,8 +38,8 @@ def index(request):
         'next_event': events.get_next(),
         'has_registered': False,
         'chat_form': None,
-        'num_members': len(members()),
-        'num_active': len(active_members()),
+        # 'num_members': len(members()),
+        # 'num_active': len(active_members()),
         'error': None
     }
     if request.method == 'POST':

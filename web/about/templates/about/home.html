@@ -1,5 +1,6 @@
 {% extends 'rocdev/base.html' %}
 {% load bootstrap4 %}
+{% load fontawesome_5 %}
 {% block title %}Home{% endblock %}
 {% block main %}
 <section class="logo row">
@@ -57,9 +58,12 @@
 </section>
 <section class="chat mt-4">
   <div class="row">
-    <div class="col">
+    <div class="col-sm-12 col-md-6">
       <div class="slack">
-        <h2><i class="fa fa-slack" aria-hidden="true"></i> Slack</h2>
+        <h2 class="fa">
+          <span>{% fa5_icon 'slack' 'fab' %}</span>
+          Slack
+        </h2>
         <div class="slack-widget">
           <p class="slack-description">
             Everyday, we chat on Slack, helping each other with a baffling stack trace, talking about the latest tech news, and sharing career advice.

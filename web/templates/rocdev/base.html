@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   {% load bootstrap4 %}
+  {% load fontawesome_5 %}
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -12,6 +13,7 @@
       rel="stylesheet"
     />
     {% bootstrap_css %}
+    {% fontawesome_5_static %}
     <style>
       html, body {
         height: 100%;
@@ -43,16 +45,28 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about_index' %}">Home</a>
+              <a class="nav-link" href="{% url 'about_index' %}">
+                <span>{% fa5_icon 'home' 'fas' %}</span>
+                Home
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about_coc' %}">Code of Conduct</a>
+              <a class="nav-link" href="{% url 'about_coc' %}">
+                <span>{% fa5_icon 'handshake' 'fas' %}</span>
+                Code of Conduct
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'events_index' %}">Events</a>
+              <a class="nav-link" href="{% url 'events_index' %}">
+                <span>{% fa5_icon 'calendar-plus' 'fas' %}</span>
+                Events
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://patreon.com/geowa4" rel="external">Donate</a>
+              <a class="nav-link" href="https://patreon.com/geowa4" rel="external">
+                <span>{% fa5_icon 'donate' 'fas' %}</span>
+                Donate
+              </a>
             </li>
           </ul>
         </div>
@@ -66,7 +80,7 @@
       <footer class="navbar bg-light border-top mt-4">
         <div class="container mt-2">
           <div class="row">
-            <p class="col">
+            <p class="col-sm-12 col-md-6">
               Coordinating events, moderating slack, and operating our platforms takes time and money.
               Please, consider supporting us through this
               <a rel="external" href="https://patreon.com/geowa4">Patreon</a>.
