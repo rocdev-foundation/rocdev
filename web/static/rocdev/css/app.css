@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  font-size: 1.5rem;
 }
 
 h1,
@@ -75,6 +76,9 @@ main {
   flex: 1 0 auto;
   margin: auto;
   /* text-align: center; */
+}
+main section {
+  background-color:whitesmoke;
 }
 
 a {
@@ -151,4 +155,8 @@ footer p {
 
 .event-links {
   text-align: center;
+}
+
+.event {
+  background-color: whitesmoke;
 }

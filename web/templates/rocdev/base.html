@@ -2,6 +2,7 @@
 <html lang="en">
   {% load bootstrap4 %}
   {% load fontawesome_5 %}
+  {% load static %}
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -32,9 +33,11 @@
       }
     </style>
     <link type="application/atom+xml" rel="alternate" href="{% url 'events_atom' %}"/>
+    <link rel="stylesheet" href="{% static '/rocdev/css/app.css' %}">
   </head>
   <body class="d-flex flex-column">
-    <div>
+    <!-- Header Nav -->
+    <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <a class="navbar-brand" href="{% url 'about_index' %}">
           {% include 'rocdev/logo.html' with width='4em' %}
@@ -71,13 +74,14 @@
           </ul>
         </div>
       </nav>
-    </div>
+    </header>
+    <!-- Content -->
     <main class="container flex-grow-1 mt-4">
       {% bootstrap_messages %}
       {% block main %}{% endblock %}
     </main>
-    <div>
-      <footer class="navbar bg-light border-top mt-4">
+    <!-- Footer -->
+    <footer class="navbar bg-light border-top mt-4">
         <div class="container mt-2">
           <div class="row">
             <p class="col-sm-12 col-md-6">
@@ -95,8 +99,7 @@
             </p>
           </div>
         </div>
-      </footer>
-    </div>
+    </footer>
     {% bootstrap_javascript jquery='slim' %}
   </body>
 </html>
