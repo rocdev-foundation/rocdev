@@ -28,6 +28,17 @@
   with_items:
     - humans.txt
     - robots.txt
+
+- name: make static files directory
+  file:
+    name: /usr/share/nginx/rocdev/.well-known
+    state: directory
+
+- name: add well-known web text files
+  copy:
+    src: "{{ item }}"
+    dest: /usr/share/nginx/rocdev/.well-known/{{ item }}
+  with_items:
     - security.txt
 
 - name: open firewall
