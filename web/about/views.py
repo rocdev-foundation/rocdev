@@ -38,8 +38,12 @@ def index(request):
         'next_event': events.get_next(),
         'has_registered': False,
         'chat_form': None,
+        # Prod with access to Slack API Token
         # 'num_members': len(members()),
         # 'num_active': len(active_members()),
+        # Dev Mode with no access to Slack API Token
+        'num_members': 900,
+        'num_active': 0,
         'error': None
     }
     if request.method == 'POST':
