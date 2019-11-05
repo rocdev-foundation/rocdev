@@ -5,7 +5,7 @@
   --fill-primary-color: rgb(248, 248, 248);
   --fill-text-color: rgb(94, 94, 94);
   --fill-accent-color: rgb(231, 231, 231);
-  --width: 600px;
+  --width: 100%;
   --column-gap: 2em;
 }
 
@@ -20,7 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  font-size: 1.5rem;
 }
 
 h1,
@@ -124,7 +123,6 @@ footer p {
 }
 
 .container {
-  width: var(--width);
   margin: auto;
 }
 

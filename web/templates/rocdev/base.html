@@ -15,27 +15,12 @@
     />
     {% bootstrap_css %}
     {% fontawesome_5_static %}
-    <style>
-      html, body {
-        height: 100%;
-      }
-      .container {
-        max-width: 768px;
-      }
-      .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-        font-family: 'Crimson Text', serif;
-      }
-      p {
-        text-align: justify;
-      }
-      footer {
-        text-align: center;
-      }
-    </style>
+
     <link type="application/atom+xml" rel="alternate" href="{% url 'events_atom' %}"/>
     <link rel="stylesheet" href="{% static '/rocdev/css/app.css' %}">
   </head>
   <body class="d-flex flex-column">
+    <div>
     <!-- Header Nav -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -75,6 +60,7 @@
         </div>
       </nav>
     </header>
+  </div>
     <!-- Content -->
     <main class="container flex-grow-1 mt-4">
       {% bootstrap_messages %}
