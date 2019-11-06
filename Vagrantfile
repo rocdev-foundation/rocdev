@@ -3,6 +3,9 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
+  config.vm.synced_folder ".", "/vagrant",
+                          owner: 'ubuntu',
+                          group: 'ubuntu'
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -42,6 +45,7 @@ Vagrant.configure("2") do |config|
     echo -e '\nexport SLACK_API_BASE="" >> /home/ubuntu/.bashrc
     echo -e '\nexport SLACK_API_TOKEN="" >> /home/ubuntu/.bashrc
     echo -e '\nexport ROCDEV_APP_HOST=$(route | awk "/default/ { print \\$2 }")' >> /home/ubuntu/.bashrc
+    sudo gpasswd -a ubuntu docker
     apt-get update
     apt-get install -y \
       make build-essential zlib1g-dev libsqlite3-dev libncurses5-dev \
