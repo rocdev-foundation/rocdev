@@ -48,11 +48,11 @@
     </div>
     <div class="col mt-2 d-flex flex-row justify-content-between">
       {% url 'events_rss' as events_rss_url %}
-      {% bootstrap_button "RSS" href=events_rss_url button_class="btn-secondary" %}
+      {% bootstrap_button " RSS" href=events_rss_url button_class="btn-secondary" extra_classes="fas fa-rss" %}
       {% url 'events_atom' as events_atom_url %}
-      {% bootstrap_button "Atom" href=events_atom_url button_class="btn-secondary" %}
+      {% bootstrap_button " Atom" href=events_atom_url button_class="btn-secondary" extra_classes="fas fa-atom" %}
       {% url 'events_ics' as events_ical_url %}
-      {% bootstrap_button "iCal" href=events_ical_url button_class="btn-secondary" %}
+      {% bootstrap_button " iCal" href=events_ical_url button_class="btn-secondary" extra_classes="fas fa-calendar-plus" %}
     </div>
   </div>
 </section>
