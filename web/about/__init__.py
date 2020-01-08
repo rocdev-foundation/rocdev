@@ -7,12 +7,11 @@ logger = logging.getLogger('rocdev')
 
 
 def warm_member_cache():
-    members_response = requests.get(
-        f'{settings.SLACK_API_BASE}/users.list',
-        params={
-            'token': settings.SLACK_API_TOKEN,
-            'presence': 1
-        })
+    members_response = requests.get(f'{settings.SLACK_API_BASE}/users.list',
+                                    params={
+                                        'token': settings.SLACK_API_TOKEN,
+                                        'presence': 1
+                                    })
     try:
         members_response.raise_for_status()
         members = members_response.json()
@@ -20,6 +19,7 @@ def warm_member_cache():
             cache.set('members', members['members'], 60 * 60)
             logger.info('warmed member cache')
         else:
+            cache.set('members', [])
             logger.error(f'error warming cache: {members["error"]}')
     except Exception:
         logger.error('error warming member cache')
